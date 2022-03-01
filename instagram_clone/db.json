@@ -1,0 +1,27 @@
+{   "fake_data":[
+
+],
+
+    "userDetails":[
+        {
+            "id":"sgsf",
+            "name":"name",
+            "phone":"phone",
+            "email":"email",
+            "passowrd":"password",
+            "profile":".././.",
+            "post":[
+                {
+                    "post_image":[
+                        {
+                         "img":"link"   
+                        }
+                    ],
+                    "post_data":"",
+                    "likes":0,
+                    "comments":[]
+                }
+            ]           
+        }
+    ]
+}
