@@ -6,20 +6,65 @@
         {
             "id":"sgsf",
             "name":"name",
+            "username":"",
             "phone":"phone",
             "email":"email",
             "passowrd":"password",
-            "profile":".././.",
+            "profile_url":"url",
+            "no_of__post":"",
+            "no_of_followers":"",
+            "no_of_follwing":"",
             "post":[
                 {
                     "post_image":[
                         {
-                         "img":"link"   
+                            "id":"id",
+                            "img":"link",
+                            "likes":0,
+                            "comments":[]  
+                         
+                        },
+                        {
+                            
+                            "id":"id",
+                            "img":"link",
+                            "likes":0,
+                            "comments":[]     
+                         
+                        },
+                        {
+                            "id":"id",
+                            "img":"link",
+                            "likes":0,
+                            "comments":[]   
+                         
+                        },
+                        {
+                           
+                            "id":"id",
+                            "img":"link",
+                            "likes":0,
+                            "comments":[]     
+                         
+                        },
+                        {
+                            
+                            "id":"id",
+                            "img":"link",
+                            "likes":0,
+                            "comments":[]     
+                         
+                        },
+                        {
+                            
+                            "id":"id",
+                            "img":"link",
+                            "likes":0,
+                            "comments":[]   
+                         
                         }
-                    ],
-                    "post_data":"",
-                    "likes":0,
-                    "comments":[]
+                    ]   
+                    
                 }
             ]           
         }
