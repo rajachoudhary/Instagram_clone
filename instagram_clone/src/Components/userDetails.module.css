@@ -1,0 +1,59 @@
+.container{
+    width: 80%;
+    margin: 3% 10%;
+    background-color: aqua;
+}
+.contain_data{
+    display: flex;
+    gap: 50px;
+}
+.contain_data>div>img{
+    border-radius: 50%;
+    height: 250px;
+    margin: 50px;
+}
+.user_name{
+    display: flex;
+    gap: 5%;
+}
+.user_name>button{
+    background: transparent;
+    height: 40px;
+    margin: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(218, 218, 218);
+}
+.user_name>button:hover{
+    background-color: rgb(208, 203, 212);
+}
+
+.followersData{
+    display: flex;
+    gap: 20%;    
+}
+.followersData>div{
+    display: flex;
+    gap: 15%;
+}
+.followersData>div>h5:nth-child(2){
+    color: rgb(184, 179, 179);
+}
+.name{
+    text-align: left;
+}
+
+.post_review{
+    height: 100px;
+    background-color: rebeccapurple;
+}
+.postImage{
+    display: flex;
+    gap: 5%;
+}
+.round_image{
+    height: 60px;
+    margin: 5%;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid red;
+}

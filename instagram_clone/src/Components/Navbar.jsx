@@ -19,6 +19,8 @@ import Home from '@mui/icons-material/Home';
 import { Message, SlowMotionVideo } from '@material-ui/icons';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 const Search = styled('div')(() => ({
@@ -59,6 +61,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [user, setUser] = React.useState("")
+  const navigate = useNavigate()
+  
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -162,22 +167,29 @@ export default function Navbar() {
       </MenuItem>
     </Menu>
   );
+  
+  const handleSearch = ()=>{
+    navigate(`/${user}`)
+  }
 
+  // React.useEffect(()=>{
+
+  // })
   return (
     <Box  sx={{ flexGrow: 1 }}>
       <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
         <Toolbar>
           <Typography >
-            <img height={30} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
+            <img height={30} width={100} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
           </Typography>
           <Search sx={{ display: { xs: 'none', sm: 'block' } }} style={{width:"30%",marginLeft:"150px"}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
+          
+            <Button onClick={()=>handleSearch()}><SearchIcon /></Button>
             <StyledInputBase
+              onChange={(e)=>setUser(e.currentTarget.value)}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-            />
+            /> 
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box  sx={{ display: { xs: 'none', md: 'flex' } }}>
