@@ -1,7 +1,6 @@
 .container{
     width: 80%;
     margin: 3% 10%;
-    background-color: aqua;
 }
 .contain_data{
     display: flex;
@@ -10,7 +9,7 @@
 .contain_data>div>img{
     border-radius: 50%;
     height: 250px;
-    margin: 50px;
+    margin: 40px;
 }
 .user_name{
     display: flex;
@@ -44,7 +43,6 @@
 
 .post_review{
     height: 100px;
-    background-color: rebeccapurple;
 }
 .postImage{
     display: flex;
@@ -56,4 +54,48 @@
     width: 60px;
     border-radius: 50%;
     border: 2px solid red;
+}
+
+.postedData{
+    width: 100%;
+}
+.postedData>div{
+    display: flex;
+    gap: 5%;
+    width: 90%;
+    padding: 20px;
+    margin: auto;
+}
+.linkNav>div{
+    display: flex;
+    width: 100%;
+}
+.linkNav>div>p{
+    margin: 0%;
+}
+.post_grid{
+    display: flex;
+    gap: 10%;
+}
+.post_grid>div:nth-child(1){
+    margin: 5%;
+    display: grid;
+    gap: 2%;
+    grid-template-columns: auto auto auto;
+}
+.postImage_display{
+    height: 100px;
+    width: 100px;
+}
+.advertisement{
+    width: 100%;
+    text-align: center;
+}
+.advt{
+    display: flex;  
+    gap: 5%;
+}
+.advt>img{
+    height: 50px;
+    width: 150px;
 }

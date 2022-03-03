@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { Link, Outlet, Route, Routes, useParams } from 'react-router-dom'
 import PersonIcon from '@mui/icons-material/Person';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Navbar from './Navbar'
 import styles from "./userDetails.module.css"
 import { style } from '@mui/system';
+import GridOnIcon from '@mui/icons-material/GridOn';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { Posts } from './Posts';
 export const UserDetails = () => {
     const [userData,setUserData] = useState([])
     const pharms = useParams()
@@ -69,6 +73,43 @@ export const UserDetails = () => {
                                  })  
                                }
                             </div>
+                        </div>
+                        <hr />
+                        <div className={styles.postedData} >
+                              <div className={styles.linkNav} >
+                              <div><GridOnIcon/><p>POSTS</p></div>
+                              <div><BookmarkBorderIcon/><p>Reels</p></div>
+                              <div><AccountBoxIcon/><p>Tagged</p> </div> 
+                              </div>
+                              <div>
+                                      <div className={styles.post_grid} >
+                                          <div>
+                                          {
+                                             item.post.map((pd)=>{
+                                                return(
+                                                    <div key={pd.id} >
+                                                       <div>
+                                                        <img className={styles.postImage_display} src={pd.img} alt="" />
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })  
+                                          }
+                                          </div>
+                                          <div className={styles.advertisement} >
+                                              <h3>
+                                              Start capturing and sharing your moments.
+                                              </h3>
+                                              <p>
+                                              Get the app to share your first photo or video.
+                                              </p>
+                                              <div className={styles.advt} >
+                                                  <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png" alt="" />
+                                                  <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png" alt="" />
+                                              </div>
+                                          </div>
+                                      </div>
+                              </div>
                         </div>
                     </div>
                 )
