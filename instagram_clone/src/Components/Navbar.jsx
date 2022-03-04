@@ -19,7 +19,7 @@ import Home from '@mui/icons-material/Home';
 import { Message, SlowMotionVideo } from '@material-ui/icons';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Button } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
 import { useDispatch, useSelector } from 'react-redux';
@@ -191,6 +191,7 @@ export default function Navbar() {
     setOpen(false);
   };
   return (
+    <Container maxWidth="lg" >
     <Box  sx={{ flexGrow: 1 }}>
       <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
         <Toolbar>
@@ -254,5 +255,7 @@ export default function Navbar() {
       {renderMenu}
       <UploadImage open={open} onClose={handleClose} />
     </Box>
+    </Container>
+
   );
 }

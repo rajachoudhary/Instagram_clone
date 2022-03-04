@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useSelector , useDispatch} from 'react-redux'
 import { Link, Navigate } from 'react-router-dom'
+import { UserDataContext } from '../../Context/UserDataContext'
 import { login_user } from '../../Redux/Auth/auth.actions'
 import Styles from "./loginSignUp.module.css"
 
 function Login() {
+
+    const  { updateLoggedUser } = useContext(UserDataContext)
 
     const [loginBtnActive, setBtnActive] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -35,6 +38,7 @@ function Login() {
         for(let i = 0; i<totalData.length; i++){
             if(loginId === totalData[i].username || loginId === totalData[i].email){
                 if(loginPass === totalData[i].passowrd){
+                    updateLoggedUser(totalData,i)
                     dispatch(login_user())
                 }
                 else{
