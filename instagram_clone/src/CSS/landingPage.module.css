@@ -2,19 +2,20 @@
     display: flex;
     gap: 3rem;
     justify-content: center;
+    font-family: Helvetica;
     
 }
 
 
 .landingPagePost{
     height:600px;
-    width: 40%;
+    width: 44%;
     /* margin: auto; */
    
 }
 .landingPagePost >div{
     margin-bottom: 30px;
-    border: 1px solid silver;
+    border: 0.5px solid rgb(206, 199, 199);
 }
 .userName{
     margin-top: 20px;
@@ -32,6 +33,7 @@
 }
 .svgIcon{
     padding: 17px;
+    
 }
 
 .profileImage{
@@ -46,6 +48,12 @@
     /* padding: 1px; */
 
 }
+.postSvgIcon{
+
+    cursor: pointer;
+    
+}
+
 
 .userPost>img{
     width: 100%;

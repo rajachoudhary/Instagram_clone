@@ -7,6 +7,7 @@ export const authReducer = (state = initialState, {type}) => {
         case LOGIN_USER : {
             let token = "TOKEN_123"
             updateValue("userToken" , token)
+            updateValue("userName" , "chetan")
             return {
                     ...state ,
                     isUserLoggedIn : true,

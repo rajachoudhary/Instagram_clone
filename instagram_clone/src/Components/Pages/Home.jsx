@@ -7,12 +7,18 @@ import { ReactComponent as Comment } from "../../Svgfile/comment.svg";
 import { ReactComponent as Share } from "../../Svgfile/share.svg";
 import { ReactComponent as Save } from "../../Svgfile/save.svg";
 import { ReactComponent as Smile } from "../../Svgfile/smile.svg";
+import Navbar from "./../Navbar"
+import HomeSignUp from "../UserLogin/HomeSignUp";
+import { useSelector } from "react-redux";
 
 
 export const Home = () => {
   const [state, setState] = useState([]);
 const [user,setUser] = useState({})
 const [like,setLike] = useState("")
+
+const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
+
   const getData = () => {
     fetch("https://json-server-skb-assignment.herokuapp.com/userDetails")
       .then((res) => res.json())
@@ -73,7 +79,9 @@ const postLike = (id)=>{
     // handleLikeButton()
   }, []);
 
-  return (
+  return !isAuth ? <HomeSignUp/> : (
+      <>
+    <Navbar/>  
     <div className={style.container} >
         <div className={style.landingPagePost}>
             {state.map((item) => {
@@ -149,5 +157,6 @@ const postLike = (id)=>{
         </div>
             
     </div>
+    </>
   );
 };

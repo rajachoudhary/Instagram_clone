@@ -22,6 +22,9 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
+import { useDispatch, useSelector } from 'react-redux';
+import { logout_user } from "../Components/../Redux/Auth/auth.actions"
+import { Link } from "react-router-dom"
 
 
 const Search = styled('div')(() => ({
@@ -64,6 +67,9 @@ export default function Navbar() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+  const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
   
 
   const isMenuOpen = Boolean(anchorEl);
@@ -81,6 +87,7 @@ export default function Navbar() {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
+
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -105,6 +112,7 @@ export default function Navbar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={() => dispatch(logout_user()) }>Logout</MenuItem>
     </Menu>
   );
 
@@ -181,7 +189,7 @@ export default function Navbar() {
       <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
         <Toolbar>
           <Typography >
-            <img height={30} width={100} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
+            <Link to={"/home"} > <img height={30} width={100} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" /> </Link>
           </Typography>
           <Search sx={{ display: { xs: 'none', sm: 'block' } }} style={{width:"30%",marginLeft:"150px"}}>
           

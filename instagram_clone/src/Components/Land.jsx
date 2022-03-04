@@ -6,8 +6,8 @@ import { Home } from './Pages/Home'
 export const Land = () => {
   return (
     <div>
-      <Navbar/>
-      <Home/>
+
+      
     </div>
   )
 }
