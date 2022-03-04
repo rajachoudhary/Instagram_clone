@@ -172,6 +172,10 @@ export default function Navbar() {
     navigate(`/${user}`)
   }
 
+  const handleAddImage = ()=>{
+
+  }
+
   // React.useEffect(()=>{
 
   // })
@@ -199,7 +203,7 @@ export default function Navbar() {
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Message/>
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton  size="large" aria-label="show 4 new mails" color="inherit">
               <AddBoxOutlinedIcon/>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -237,6 +241,9 @@ export default function Navbar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <div>
+        dfgfd
+      </div>
     </Box>
   );
 }
