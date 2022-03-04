@@ -166,8 +166,8 @@ export default function Navbar() {
             <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
             </IconButton>
-            <IconButton size="large"  color="inherit">
-              <Explore/>
+            <IconButton size="large"  style={{marginTop:"5px"}} color="inherit">
+              <Link to="./explore" ><Explore/></Link>
             </IconButton>
             <IconButton size="large"  color="inherit">
               <Heart/>
