@@ -44,7 +44,7 @@ const Search = styled('div')(() => ({
   border:"1px solid #EFE4E2",
   backgroundColor: "white",
   '&:hover': {
-    backgroundColor:"#E1E1E1",
+    backgroundColor:"#EFE4E2",
   },
   borderRadius:"10px"
 }));
