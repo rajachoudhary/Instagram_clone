@@ -7,11 +7,11 @@ import { useEffect } from "react";
 function ForgetPass() {
 
   const [buttonActive, setButtonActive] = useState(false);
-  const [forgetDetails, setForgetDetails] = useState("")
-  const [allDetails, setAllDetails] = useState({})
-  const [password, setPassword] = useState("")
-  const [wrongDetails, setWrongDetails] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [forgetDetails, setForgetDetails] = useState("");
+  const [allDetails, setAllDetails] = useState({});
+  const [password, setPassword] = useState("");
+  const [wrongDetails, setWrongDetails] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     fetch("https://json-server-skb-assignment.herokuapp.com/userDetails")
