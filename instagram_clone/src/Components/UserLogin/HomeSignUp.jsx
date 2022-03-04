@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import Styles from "./loginSignUp.module.css"
 import ImageChange from "./ImageChange"
 import { useDispatch, useSelector } from 'react-redux'
 import { login_user } from '../../Redux/Auth/auth.actions'
+import { UserDataContext } from '../../Context/UserDataContext'
 
 function HomeSignUp() {
 
@@ -13,6 +14,8 @@ function HomeSignUp() {
     const [loginPass, setLoginPass] = useState("")
     const [wrongUser, setWrongUser] = useState(false)
     const [totalData, setTotalData] = useState({})
+
+    const  { updateLoggedUser } = useContext(UserDataContext)
 
     const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
     const dispatch = useDispatch();
@@ -35,6 +38,7 @@ function HomeSignUp() {
         for(let i = 0; i<totalData.length; i++){
             if(loginId === totalData[i].username || loginId === totalData[i].email){
                 if(loginPass === totalData[i].passowrd){
+                    updateLoggedUser(totalData,i)
                     dispatch(login_user())
                 }
                 else{

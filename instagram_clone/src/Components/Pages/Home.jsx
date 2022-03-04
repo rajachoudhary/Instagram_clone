@@ -10,6 +10,7 @@ import { ReactComponent as Smile } from "../../Svgfile/smile.svg";
 import Navbar from "./../Navbar"
 import HomeSignUp from "../UserLogin/HomeSignUp";
 import { useSelector } from "react-redux";
+import UserCard from "../UserLogin/UserCard"
 
 
 export const Home = () => {
@@ -123,7 +124,7 @@ const postLike = (id)=>{
                                 <input type="text" placeholder="Add a comment" />
                             </div>
                             <div>
-                                <div>post</div>
+                                <div>Post</div>
                             </div>
                         </div>
                     </div>
@@ -131,6 +132,8 @@ const postLike = (id)=>{
             })}
         </div>
         <div className={style.container1}>
+
+            <div> <UserCard/> </div>
             
             <div  className={style.suggestions}>
                 <div>Suggestions for you</div>
@@ -153,6 +156,7 @@ const postLike = (id)=>{
             }
             <div className={style.container1Footer}>{"About.Help.Press.API.Jobs.Privacy.Terms.Locations.Top AccountsHashtags.LanguageEnglish"}
             <div className={style.container1Footer}>© 2022 INSTAGRAM FROM META</div>
+
           </div>
         </div>
             
