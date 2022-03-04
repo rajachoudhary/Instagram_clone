@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import {Link, useNavigate} from "react-router-dom"
+import {Link, Navigate, useNavigate} from "react-router-dom"
 import Styles from "./loginSignUp.module.css"
+import { useSelector } from 'react-redux'
 import { v4 } from "uuid"
+import Loading from './Loading'
+
 
 const initUserDetails = {
     id : v4(),
@@ -19,9 +22,13 @@ const initUserDetails = {
 
 function SignUp() {
 
+  const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
+
   const [userData, setUserData] = useState(initUserDetails);
   const [signUpActive, setSignUpActive] = useState(false);
   const [showHidePass, setShowHidePass] = useState(false);
+  const [isLoading, setLoading] = useState(false)
+
   const navigate = useNavigate();
 
   const handleData = e => {
@@ -40,27 +47,31 @@ function SignUp() {
       }
   }
 
+
+
   const postData = async () => {
+    setLoading(true)
       try {
           await fetch("https://json-server-skb-assignment.herokuapp.com/userDetails", {
               method : "POST",
               body : JSON.stringify(userData),
               headers : { "content-type" : "application/json" }
           })
+          setLoading(false)
       }
       catch (err) {
           console.log(err)
+          setLoading(false)
       }
 
       navigate("/accounts/login")
   }
 
-  return (
+  return isAuth ? <Navigate to={"/home"}/> : (
     <>
     
 
       <div className={Styles.mainSignupDiv}>
-          
              <div className={Styles.signupDivPage}>
                     <img src="https://i.ibb.co/gms294Q/Screenshot-638-removebg-preview.png" height={"85px"} alt="logo" />
                     <div >
@@ -72,8 +83,6 @@ function SignUp() {
                         <p>OR</p>
                         <hr />
                     </div>
-
-                   
                     
                     <div className={Styles.c_SignUpInput_div}>
                         <input type="text" name='email' value={userData.email} onChange={handleData} placeholder='Mobile Number or Email'/>
@@ -84,7 +93,7 @@ function SignUp() {
 
                     <button  className={ signUpActive ? Styles.signUpbtnActive : Styles.signUpbtnUnactive} onClick={() => {
                         signUpActive ? postData() : console.log("nothing")
-                    }}>Sign up</button>
+                    }}>{isLoading ? <Loading /> : "Sign up" }</button>
 
                     <p>By signing up, you agree to our <b>Terms, Data Policy</b>  and <b> Cookies Policy .</b></p>
 

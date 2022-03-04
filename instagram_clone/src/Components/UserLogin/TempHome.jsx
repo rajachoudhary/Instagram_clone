@@ -8,7 +8,7 @@ function TempHome() {
   return (
     <div>
         <h1>WELCOME TO INSTAGRAM</h1>
-        {isAuth && <button>LOGOUT</button> }
+        {isAuth ? <button>LOGOUT</button> : <button>LOGIN</button>}
     </div>
   )
 }

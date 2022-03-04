@@ -2,15 +2,15 @@ import { LOGIN_USER, LOGOUT_USER } from "./auth.actionTypes"
 import { initialState } from "./auth.constants";
 import { updateValue } from "../../utils/localStorage"
  
-export const authReducer = (state = initialState, {type, payload}) => {
-    switch (type){
+export const authReducer = (state = initialState, {type}) => {
+    switch (type) {
         case LOGIN_USER : {
-            let userToken = "TOKEN_123"
-            updateValue("userToken" , userToken)
+            let token = "TOKEN_123"
+            updateValue("userToken" , token)
             return {
                     ...state ,
                     isUserLoggedIn : true,
-                    userToken: userToken,
+                    userToken : token
                 }
             }
         case LOGOUT_USER : {
@@ -18,7 +18,7 @@ export const authReducer = (state = initialState, {type, payload}) => {
             return {
                     ...state, 
                     isUserLoggedIn : false,
-                    userToken: "",
+                    userToken : ""
                 }
             }
         default : {

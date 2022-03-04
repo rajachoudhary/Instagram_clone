@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector , useDispatch} from 'react-redux'
 import { Link, Navigate } from 'react-router-dom'
 import { login_user } from '../../Redux/Auth/auth.actions'
@@ -10,41 +10,41 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false)
     const [loginId, setLoginId] = useState("")
     const [loginPass, setLoginPass] = useState("")
+    const [totalData, setTotalData] = useState({})
     const [wrongUser, setWrongUser] = useState(false)
 
     const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
     const dispatch = useDispatch();
 
-    const handleLogin = async () => {
 
-        try {
-            const response = await fetch("https://json-server-skb-assignment.herokuapp.com/userDetails")
-            const resultRes = await response.json()
-            checkLoginSuccess(resultRes, loginId, loginPass)
 
+    useEffect(() => {
+        fetch("https://json-server-skb-assignment.herokuapp.com/userDetails")
+        .then(response => response.json())
+        .then(result => setTotalData(result))
+        .catch(err => console.log(err))
+
+        return () => {
+            setTotalData({})
         }
-        catch (error){
-            console.log(error)
-        }
-    }
+        
+    }, [])
 
 
-    const checkLoginSuccess = (result, userId, userPass) => {
-
-        for(let i = 0; i<result.length; i++){
-            if(result[i].username === userId || result[i].email === userId){
-                if(result[i].passowrd === userPass){
-                  dispatch(login_user())
+    const handleLogin = () => {
+        for(let i = 0; i<totalData.length; i++){
+            if(loginId === totalData[i].username || loginId === totalData[i].email){
+                if(loginPass === totalData[i].passowrd){
+                    dispatch(login_user())
                 }
                 else{
-                    return setWrongUser(true)
+                    setWrongUser(true)
                 }
             }
             else{
-                   return setWrongUser(true)
+                setWrongUser(true)
             }
         }
-
     }
 
     const showPasswordHandle = () => {
