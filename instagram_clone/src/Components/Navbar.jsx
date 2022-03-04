@@ -25,6 +25,7 @@ import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
 import { Link } from "react-router-dom"
+import { UploadImage } from './UploadImage/UploadImage';
 
 
 const Search = styled('div')(() => ({
@@ -64,6 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
   const navigate = useNavigate()
@@ -181,9 +183,13 @@ export default function Navbar() {
     navigate(`/${user}`)
   }
 
-  // React.useEffect(()=>{
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-  // })
+  const handleClose = (value) => {
+    setOpen(false);
+  };
   return (
     <Box  sx={{ flexGrow: 1 }}>
       <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
@@ -208,7 +214,7 @@ export default function Navbar() {
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Message/>
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton onClick={handleClickOpen} size="large" aria-label="show 4 new mails" color="inherit">
               <AddBoxOutlinedIcon/>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -246,6 +252,7 @@ export default function Navbar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <UploadImage open={open} onClose={handleClose} />
     </Box>
   );
 }
