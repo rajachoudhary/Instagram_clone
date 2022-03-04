@@ -21,6 +21,7 @@ import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
 
 
 const Search = styled('div')(() => ({

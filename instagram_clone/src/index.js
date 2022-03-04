@@ -1,27 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import { store } from "./Redux"
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./Redux";
 
-import App from './App';
-
-
-import { BrowserRouter } from 'react-router-dom';
-
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store} >
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-
 
 // "https://json-server-skb-assignment.herokuapp.com/userDetails"
