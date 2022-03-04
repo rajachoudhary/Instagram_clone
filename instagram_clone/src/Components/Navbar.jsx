@@ -15,18 +15,28 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import Home from '@mui/icons-material/Home';
-import { Message, SlowMotionVideo } from '@material-ui/icons';
+// import Home from '@mui/icons-material/Home';
+import {SlowMotionVideo } from '@material-ui/icons';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
+
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
 import { Link } from "react-router-dom"
 import { UploadImage } from './UploadImage/UploadImage';
-
+import {ReactComponent as Home} from "../../src/Svgfile/Home.svg"
+import {ReactComponent as Add} from "../../src/Svgfile/Add.svg"
+import {ReactComponent as Explore} from "../../src/Svgfile/Explore.svg"
+import {ReactComponent as Heart} from "../../src/Svgfile/Heart.svg"
+import {ReactComponent as Message} from "../../src/Svgfile/Message.svg"
+import {ReactComponent as Profile} from "../../src/Svgfile/Profile.svg"
+import {ReactComponent as Saved} from "../../src/Svgfile/Saved.svg"
+import {ReactComponent as Switch} from "../../src/Svgfile/Switch.svg"
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import styles from "./Navbar.module.css"
+import { style } from '@mui/system';
 
 const Search = styled('div')(() => ({
   position: 'relative',
@@ -34,7 +44,7 @@ const Search = styled('div')(() => ({
   border:"1px solid #EFE4E2",
   backgroundColor: "white",
   '&:hover': {
-    backgroundColor:"#EFE4E2",
+    backgroundColor:"#E1E1E1",
   },
   borderRadius:"10px"
 }));
@@ -95,87 +105,22 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      className={styles.dropdown}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={() => dispatch(logout_user()) }>Logout</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      style={{padding:"10px",marginTop:"40px"}}
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-        <Home/>
-        </IconButton>
-        <p>Home</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-        <AddBoxOutlinedIcon/>
-        </IconButton>
-        <p>Post</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-        <SlowMotionVideo/>
-        </IconButton>
-        <p>Videos</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Message/>
-        </IconButton>
-        <p>Message</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+      <div className={styles.dropDown_content}>
+                  <MenuItem className={styles.content}  onClick={handleMenuClose}><Profile/> <span>Profile</span></MenuItem>
+                  <MenuItem className={styles.content} onClick={handleMenuClose}><Saved/><span>Saved</span></MenuItem>
+                  <MenuItem className={styles.content} onClick={handleMenuClose}><BookmarkBorderIcon/><span>Setting</span></MenuItem>
+                  <MenuItem className={styles.content} onClick={handleMenuClose}><Switch/><span>Switch Account</span></MenuItem>
+                  <hr />
+                  <MenuItem className={styles.content} onClick={() => dispatch(logout_user()) }>Logout</MenuItem>
+      </div>
+      
     </Menu>
   );
   
@@ -191,71 +136,60 @@ export default function Navbar() {
     setOpen(false);
   };
   return (
-    <Container maxWidth="lg" >
-    <Box  sx={{ flexGrow: 1 }}>
-      <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
-        <Toolbar>
+    // <Container   >
+    <Box className={styles.navbar_container}   sx={{ flexGrow: 1 }}>
+      <AppBar style={{background:"white"}} position="static">
+        <Toolbar style={{width:"75%",margin:"auto"}}>
           <Typography >
-            <Link to={"/home"} > <img height={30} width={100} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" /> </Link>
+            <Link to={"/home"} > <img className={styles.logo} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" /> </Link>
           </Typography>
-          <Search sx={{ display: { xs: 'none', sm: 'block' } }} style={{width:"30%",marginLeft:"150px"}}>
-          
-            <Button onClick={()=>handleSearch()}><SearchIcon /></Button>
+          <Search sx={{ display: { xs: 'none', sm: "none",md:"flex",lg:"flex" } }} style={{width:"30%",marginLeft:"150px"}}>
+            {/* <Button  onClick={()=>handleSearch()}><SearchIcon /></Button> */}
+            <Button style={{marginRight:"-50px"}} >
+              <SearchIcon onClick={()=>handleSearch()} />
+            </Button>
             <StyledInputBase
+              style={{marginLeft:"0px"}}
               onChange={(e)=>setUser(e.currentTarget.value)}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             /> 
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box  sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Box  sx={{ display: { xs: 'flex', md: 'flex' } }}>
+            <IconButton size="large"  color="inherit">
               <Home/>
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton size="large"  color="inherit">
               <Message/>
             </IconButton>
-            <IconButton onClick={handleClickOpen} size="large" aria-label="show 4 new mails" color="inherit">
-              <AddBoxOutlinedIcon/>
+            <IconButton onClick={handleClickOpen} size="large"  color="inherit">
+              <Add/>
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <SlowMotionVideo/>
+            <IconButton size="large"  color="inherit">
+              <Explore/>
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <FavoriteBorderIcon/>
+            <IconButton size="large"  color="inherit">
+              <Heart/>
             </IconButton>
             
             <IconButton
               size="large"
               edge="end"
               aria-label="account of current user"
-              aria-controls={menuId}
+              className={styles.account}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
             >
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
       {renderMenu}
       <UploadImage open={open} onClose={handleClose} />
     </Box>
-    </Container>
+    // </Container>
 
   );
 }
