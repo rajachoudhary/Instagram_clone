@@ -1,25 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useSelector , useDispatch} from 'react-redux'
 import { Link, Navigate } from 'react-router-dom'
-import { UserDataContext } from '../../Context/UserDataContext'
-import { login_user } from '../../Redux/Auth/auth.actions'
 import Styles from "./loginSignUp.module.css"
+import ImageChange from "./ImageChange"
+import { useDispatch, useSelector } from 'react-redux'
+import { login_user } from '../../Redux/Auth/auth.actions'
+import { UserDataContext } from '../../Context/UserDataContext'
 
-function Login() {
-
-    const  { updateLoggedUser } = useContext(UserDataContext)
+function HomeSignUp() {
 
     const [loginBtnActive, setBtnActive] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [loginId, setLoginId] = useState("")
     const [loginPass, setLoginPass] = useState("")
-    const [totalData, setTotalData] = useState({})
     const [wrongUser, setWrongUser] = useState(false)
+    const [totalData, setTotalData] = useState({})
+
+    const  { updateLoggedUser } = useContext(UserDataContext)
 
     const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
     const dispatch = useDispatch();
-
-
 
     useEffect(() => {
         fetch("https://json-server-skb-assignment.herokuapp.com/userDetails")
@@ -30,8 +29,9 @@ function Login() {
         return () => {
             setTotalData({})
         }
-        
+
     }, [])
+
 
 
     const handleLogin = () => {
@@ -51,25 +51,29 @@ function Login() {
         }
     }
 
+
     const showPasswordHandle = () => {
         setShowPassword(!showPassword)
     }
 
-  return isAuth ? <Navigate to={"/home"}/> : (
 
-      <div className={Styles.loginMainDivSep}>
-
-            <div className={Styles.loginPageSep}>
-                <div className={Styles.loginSepBox}>
+  return  isAuth ? <Navigate to={"/home"}/> : (
+    <section className={Styles.c_mainDiv}>
+        <div className={Styles.c_divider_div}>
+            <div className={Styles.c_iphoneDiv}>
+                <ImageChange/>
+                <img className={Styles.iphoneImg} src="https://www.instagram.com/static/images/homepage/home-phones.png/43cc71bb1b43.png" alt='iphone-Img' />
+            </div>
+            <div>
+                <div className={Styles.c_loginBox}>
                     <img src="https://i.ibb.co/gms294Q/Screenshot-638-removebg-preview.png" height={"85px"} alt="logo" />
                     <div>{
                          
                          loginPass.length >= 1 ? <button className={Styles.showHide} onClick={showPasswordHandle} >{showPassword ? "Hide" : "Show"}</button> 
                          : <button className={Styles.showHide}></button> 
 
-                         }
-                    </div>
-                    <div className={Styles.c_loginInputSepdiv}>
+                        }</div>
+                    <div className={Styles.c_loginInput_div}>
                        <input type="text" placeholder='Phone number, username, or email' onChange={e => setLoginId(e.currentTarget.value)} />
                        <input type={showPassword ? "text" : "password"} placeholder='Password' onChange={e => {
                            if(loginId.length >= 1){
@@ -85,18 +89,22 @@ function Login() {
                             setShowPassword(false)
                            }
                        }}/>            
-                      <button onClick={handleLogin} className={loginBtnActive ? Styles.btnActive : Styles.btnUnActive}>Log In</button>
+                      <button  onClick={() => {
+                          if(loginBtnActive){
+                              handleLogin()
+                          }
+                      }} className={loginBtnActive ? Styles.btnActive : Styles.btnUnActive}>Log In</button>
                     </div>
 
-                    <div className={Styles.c_loginSepHr}>
+                    <div className={Styles.c_orHrtag}>
                         <hr />
                         <p>OR</p>
                         <hr />
                     </div>
                        
-                    <button className={Styles.c_facebookLoginSep}>  <img src="https://i.ibb.co/MMRY5zk/icons8-facebook-30.png" height={"22px"} alt="facebook" /> <p> Log in with Facebook</p></button>
+                    <button className={Styles.facebookLogin}>  <img src="https://i.ibb.co/MMRY5zk/icons8-facebook-30.png" height={"22px"} alt="facebook" /> <p> Log in with Facebook</p></button>
 
-                    <div className={Styles.wrongDetailsInfo}>{wrongUser && <p>Sorry, your credentials was incorrect. Please double-check your credentials.</p>}</div>
+                    <div className={Styles.wrongDetailsInfohome}>{wrongUser && <p>Sorry, your credentials was incorrect. Please double-check your credentials.</p>}</div>
 
                     <div className={Styles.forgetLinkDiv} >
                        <Link className={Styles.forgetLink} to={"/account/password/reset"}>Forgot password?</Link>
@@ -104,7 +112,7 @@ function Login() {
 
                 </div>
 
-                <div className={Styles.loginSignUpSep}>
+                <div className={Styles.signUpDiv}>
                     <p>Don't have an account? <Link className={Styles.signupbtn} to={"/accounts/signup"}>Sign up</Link></p>
                 </div>
 
@@ -116,8 +124,11 @@ function Login() {
                     </div>
                 </div>
         
-                <div  className={Styles.footerDiv} >
-            <div className={Styles.footerSignUpLink} >
+            </div>
+        </div>
+
+        <div  className={Styles.footerDiv} >
+            <div>
                 <Link className={Styles.footerPages} to={""}>Meta</Link>
                 <Link className={Styles.footerPages}  to={""}>About</Link>
                 <Link className={Styles.footerPages}  to={""}>Blog</Link>
@@ -132,7 +143,15 @@ function Login() {
                 <Link className={Styles.footerPages}  to={""}>Instagram Lite</Link>
             </div>
 
-            <div >
+            <div>
+                <Link className={Styles.footerPages}  to={""}>Dance</Link>
+                <Link className={Styles.footerPages}  to={""}>Food & Drink</Link>
+                <Link className={Styles.footerPages}  to={""}>Home & Garden</Link>
+                <Link className={Styles.footerPages}  to={""}>Music</Link>
+                <Link className={Styles.footerPages}  to={""}>Visual Arts</Link>
+            </div>
+
+            <div>
                 <select className={Styles.languageList}>
                     <option value="">English</option>
                     <option value="">Afrikans</option>
@@ -149,11 +168,8 @@ function Login() {
             </div>
         </div>
 
-            </div>
-        </div>
-
-        
+    </section>
   )
 }
 
-export default Login
+export default HomeSignUp
