@@ -196,7 +196,23 @@ export const Home = () => {
           })}
           <div className={style.container1Footer}>
             {
+
               "About.Help.Press.API.Jobs.Privacy.Terms.Locations.Top AccountsHashtags.LanguageEnglish"
+
+                state.map((item)=>{
+                    return(
+                        <div key={item.id} className={style.rightContent}>
+                            <div>
+                                <div className={style.profileImage}>
+                                    <img src={item.profile_url} alt="profile_logo" />
+                                </div>
+                                <div className={style.username2}>{item.username} </div>
+                            </div>
+                            <div>Follow</div>
+                        </div>
+                    )
+                })
+
             }
             <div className={style.container1Footer}>
               © 2022 INSTAGRAM FROM META

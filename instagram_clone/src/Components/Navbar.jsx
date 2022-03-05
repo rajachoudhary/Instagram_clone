@@ -111,7 +111,14 @@ export default function Navbar() {
       className={styles.dropdown}
     >
 
+
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+
+      <MenuItem onClick={() => {
+        navigate("/profile")
+        handleMenuClose()
+      }}>Profile</MenuItem>
+
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
