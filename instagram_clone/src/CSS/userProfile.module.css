@@ -91,13 +91,6 @@
     width: 300px;
 }
 
-.profilethreebtn button{
-    height: 53px;
-    width: 100px;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-}
 
 .profileBtnIcon{
     position: relative;
@@ -111,9 +104,9 @@
 .userPosts{
     margin: auto;
     width: 79%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     flex-wrap: wrap;
+    /* grid-template-columns: 1fr 1fr 1fr; */
     gap: 5px;
 }
 
@@ -184,3 +177,177 @@
 .languageList{
     border: none;
 }
+
+.savedMainContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.savedPageProfile{
+    margin: auto;
+    width: 25%; 
+}
+
+.savedDiv{
+    position: relative;
+    left: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.savedDiv :hover {
+    filter: brightness(60%);
+    cursor: pointer;
+}
+.onlyuser{
+    position: relative;
+    left: 14vw;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: grey;
+}
+
+
+.userTagged{
+    margin: auto;
+    width: 79%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: 5px;
+   
+}
+
+
+.userPostHide{
+    display: none;
+}
+
+.onlyuserHide, .savedHide {
+    display: none;
+}
+
+.userTaggedHide{
+    display: none;
+}
+
+.showPostBtn{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(85, 81, 81);
+    font-weight: 600;
+    border: none;
+    border-top: 2px solid black;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.showSavedBtn{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(85, 81, 81);
+    font-weight: 600;
+    border: none;
+    border-top: 2px solid black;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.showTaggedBtn{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(85, 81, 81);
+    font-weight: 600;
+    border: none;
+    border-top: 2px solid black;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.tappedPost{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.tappedSaved{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.tappedTagged{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+/* .MainPostResponsiveDiv{
+    align-content: center;
+} */
+
+@media screen and (max-width: 940px){
+    .imageShown{
+        height: 200px;
+        width: 230px;
+    }
+
+    .likeDiv{
+        display: none;
+    }
+
+    .commentDiv{
+        display: none;
+    }
+    .level1Div{
+        margin: auto;
+        width: 79%;
+        display: grid;
+        grid-template-columns: 1fr 2fr ;
+        gap: 10px;
+       }
+    
+       .userImage{
+           margin-left: 5%;
+       }
+}
+
+
+@media screen and (max-width: 640px){
+    .level1Div{
+     grid-template-columns: 1fr 3fr;
+    }
+ 
+    .userImage{
+        height: 100px;
+        width: 100px;
+        margin-top: 35px;
+    }
+    .imageShown{
+        height: 120px;
+        width: 120px;
+        margin-left: 10px;
+    }
+    .savedPageProfile {
+       margin-left: 10px;
+    }
+ }
