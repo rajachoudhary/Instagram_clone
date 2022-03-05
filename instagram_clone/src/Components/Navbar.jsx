@@ -80,6 +80,7 @@ export default function Navbar() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   
 
   const isMenuOpen = Boolean(anchorEl);
@@ -196,13 +197,7 @@ export default function Navbar() {
   // })
   return (
 
-    <Box  sx={{ flexGrow: 1 }}>
-      <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
-        <Toolbar>
-          <Typography >
-            <img height={30} width={100} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
-
-    // <Container   >
+    
     <Box className={styles.navbar_container}   sx={{ flexGrow: 1 }}>
       <AppBar style={{background:"white"}} position="static">
         <Toolbar style={{width:"75%",margin:"auto"}}>
@@ -233,8 +228,8 @@ export default function Navbar() {
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <AddBoxOutlinedIcon/>
-
-            <IconButton onClick={handleClickOpen} size="large"  color="inherit">
+              </IconButton>
+            <IconButton  size="large"  color="inherit">
               <Add/>
 
             </IconButton>
@@ -262,8 +257,7 @@ export default function Navbar() {
     </Box>
 
 
-    // </Container>
-
+  
 
   );
 }
