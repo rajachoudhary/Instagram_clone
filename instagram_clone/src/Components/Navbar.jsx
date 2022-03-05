@@ -145,7 +145,7 @@ export default function Navbar() {
           </Typography>
           <Search sx={{ display: { xs: 'none', sm: "none",md:"flex",lg:"flex" } }} style={{width:"30%",marginLeft:"150px"}}>
             {/* <Button  onClick={()=>handleSearch()}><SearchIcon /></Button> */}
-            <Button style={{marginRight:"-50px"}} >
+            <Button style={{marginRight:"-40px"}} >
               <SearchIcon onClick={()=>handleSearch()} />
             </Button>
             <StyledInputBase
