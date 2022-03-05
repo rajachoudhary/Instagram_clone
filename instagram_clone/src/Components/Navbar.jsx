@@ -37,6 +37,8 @@ import {ReactComponent as Switch} from "../../src/Svgfile/Switch.svg"
 import {ReactComponent as Setting} from "../../src/Svgfile/Setting.svg"
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import styles from "./Navbar.module.css"
+import { UserDataContext } from '../Context/UserDataContext';
+import { height } from '@mui/system';
 
 
 const Search = styled('div')(() => ({
@@ -79,6 +81,8 @@ export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
+  const { userImg, getDataLoggedUser  } = React.useContext(UserDataContext)
+
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
@@ -167,7 +171,7 @@ export default function Navbar() {
             /> 
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box  sx={{ display: { xs: 'flex', md: 'flex' } }}>
+          <Box  sx={{ display: { xs: 'flex', md: 'flex' } }} >
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Home/>
             </IconButton>
@@ -188,7 +192,8 @@ export default function Navbar() {
               size="large"
               onClick={handleProfileMenuOpen}
             >
-              <Profile/>
+              {/* <Profile/> */}
+              <img src={userImg} alt="userimage" style={{width:"35px", height:"35px",borderRadius:"50%"}}/>
             </IconButton>
           </Box>
         </Toolbar>

@@ -4,6 +4,11 @@
     position: fixed;
     margin-top: -44px;
     background-color: white;
+    z-index: 100;
+}
+.navbarRightIcons{
+    padding-left: 15%;
+    border: 1px slid black;
 }
 .appbar{
     background-color: white;
@@ -11,7 +16,7 @@
     box-shadow: 0px 0px ;
 }
 .navbar{
-    width: 75%;
+    width: 63%;
     margin: auto;
 }
 .dropDown{
