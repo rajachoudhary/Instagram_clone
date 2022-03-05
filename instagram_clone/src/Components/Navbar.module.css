@@ -1,0 +1,25 @@
+.navbar_container{
+    background-color: rgb(247, 244, 244);
+    border-bottom: 1px solid rgb(172, 166, 166);
+    width: 100%;
+    display: inline;
+    position: fixed;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    color: black;
+}
+.account{
+    color: black;
+}
+.logo{
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+}
+.dropDown_content{
+    width: 250px;
+}
+.content{
+    display: flex;
+    gap:20px;
+}

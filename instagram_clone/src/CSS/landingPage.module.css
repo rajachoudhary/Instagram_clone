@@ -4,6 +4,55 @@
     justify-content: center;
     font-family: Helvetica;
     margin-top: 40px;
+    /* width:80% */
+}
+
+.SliderProfileImage > img{
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    border: 2px solid red;
+    padding: 2.5px;
+    justify-content: center;
+    margin: auto;
+}
+.sliderContainer{
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.sliderUserName{
+    white-space: nowrap; 
+    padding: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 13px;
+}
+
+.leftSliderbuttton{
+    margin-top:30px;
+    margin-left: 5px;
+    position: absolute;
+    z-index: 10;
+    padding: 2px;
+    border-radius: 10px;
+    border: none;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+}
+.rightSliderButtton{
+    margin-top:30px; 
+    position: absolute;
+    margin-left: 41%;
+    z-index: 10;
+    padding: 2px;
+    border-radius: 10px;
+    border: none;
+    height: 20px;
+    width: 20px;
+    background-color: white;
 }
 
 
@@ -90,6 +139,15 @@
     }
 }
 
+.like{
+    animation-duration: .45s;
+    
+}
+.container1{
+    margin-top: 30px;
+    position: fixed;
+    margin-left:65% ;
+}
 .postSvgIcon{
     padding: 15px;
     display: flex;
