@@ -1,0 +1,31 @@
+.navbar_container{
+    width: 100%;
+    border-bottom: 1px solid rgb(192, 191, 191);
+    position: fixed;
+    margin-top: -44px;
+    background-color: white;
+}
+.appbar{
+    background-color: white;
+    border: 1px solid rgb(201, 199, 199);
+    box-shadow: 0px 0px ;
+}
+.navbar{
+    width: 75%;
+    margin: auto;
+}
+.dropDown{
+    margin-top: 50px;
+}
+.dropDown_content{
+    width: 200px;
+}
+.displayDropdown{
+    display: flex;
+    gap: 20px;
+}
+.logo{
+   height: 30px;
+   width: 100px;
+   margin-top: 10px; 
+}
