@@ -1,0 +1,83 @@
+.diag{
+    background: transparent;
+    
+}
+.dialog{
+    height: 450px;
+    width: 400px;
+    background-color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+.drag_element{
+    margin-top: 100px; 
+}
+.drag{
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(95, 95, 95);
+    margin-top: 10px;
+}
+.drag_button{
+    margin-top: 20px;
+}
+.drag_button_disp{
+    /* border: 1px solid red; */
+    border-radius: 10%;
+}
+
+
+/* part2 */
+.imageView_p2{
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+}
+.funct_nav{
+    display: flex;
+    padding: 2%;
+    gap: 85%;
+}
+.funct_nav>button{
+    background-color: white;
+    border: 0;
+}
+
+/* part 3 */
+.container_p3{
+    width: auto;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+.imageView_p3{
+    width: 250px;
+    height: 250px;
+}
+.fragments{
+    display: flex;
+    gap: 30px;
+}
+.filters{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: auto auto auto;
+}
+.filters>button>img{
+    width: 70px;
+    height: 70px;
+}
+
+
+/* part4 */
+.profile{
+    display: flex;
+    gap: 30px;
+    padding: 5px;
+}
+.profile_img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
