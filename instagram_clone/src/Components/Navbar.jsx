@@ -19,8 +19,9 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import {SlowMotionVideo } from '@material-ui/icons';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Button, Container } from '@mui/material';
+import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
@@ -37,6 +38,7 @@ import {ReactComponent as Switch} from "../../src/Svgfile/Switch.svg"
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import styles from "./Navbar.module.css"
 import { style } from '@mui/system';
+
 
 const Search = styled('div')(() => ({
   position: 'relative',
@@ -75,13 +77,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
   const navigate = useNavigate()
-
-  const dispatch = useDispatch()
-  const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
   
 
   const isMenuOpen = Boolean(anchorEl);
@@ -100,7 +98,6 @@ export default function Navbar() {
     handleMobileMenuClose();
   };
 
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -112,6 +109,71 @@ export default function Navbar() {
       onClose={handleMenuClose}
       className={styles.dropdown}
     >
+
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
+
+  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const renderMobileMenu = (
+    <Menu
+      style={{padding:"10px",marginTop:"40px"}}
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <Home/>
+        </IconButton>
+        <p>Home</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <AddBoxOutlinedIcon/>
+        </IconButton>
+        <p>Post</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <SlowMotionVideo/>
+        </IconButton>
+        <p>Videos</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Message/>
+        </IconButton>
+        <p>Message</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
+
       <div className={styles.dropDown_content}>
                   <MenuItem className={styles.content}  onClick={handleMenuClose}><Profile/> <span>Profile</span></MenuItem>
                   <MenuItem className={styles.content} onClick={handleMenuClose}><Saved/><span>Saved</span></MenuItem>
@@ -121,6 +183,7 @@ export default function Navbar() {
                   <MenuItem className={styles.content} onClick={() => dispatch(logout_user()) }>Logout</MenuItem>
       </div>
       
+
     </Menu>
   );
   
@@ -128,20 +191,24 @@ export default function Navbar() {
     navigate(`/${user}`)
   }
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // React.useEffect(()=>{
 
-  const handleClose = (value) => {
-    setOpen(false);
-  };
+  // })
   return (
+
+    <Box  sx={{ flexGrow: 1 }}>
+      <AppBar style={{backgroundColor:"white",color:"black"}} position="static">
+        <Toolbar>
+          <Typography >
+            <img height={30} width={100} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
+
     // <Container   >
     <Box className={styles.navbar_container}   sx={{ flexGrow: 1 }}>
       <AppBar style={{background:"white"}} position="static">
         <Toolbar style={{width:"75%",margin:"auto"}}>
           <Typography >
             <Link to={"/home"} > <img className={styles.logo} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" /> </Link>
+
           </Typography>
           <Search sx={{ display: { xs: 'none', sm: "none",md:"flex",lg:"flex" } }} style={{width:"30%",marginLeft:"150px"}}>
             {/* <Button  onClick={()=>handleSearch()}><SearchIcon /></Button> */}
@@ -163,8 +230,13 @@ export default function Navbar() {
             <IconButton size="large"  color="inherit">
               <Message/>
             </IconButton>
+
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <AddBoxOutlinedIcon/>
+
             <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
+
             </IconButton>
             <IconButton size="large"  style={{marginTop:"5px"}} color="inherit">
               <Link to="./explore" ><Explore/></Link>
@@ -187,9 +259,11 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       {renderMenu}
-      <UploadImage open={open} onClose={handleClose} />
     </Box>
+
+
     // </Container>
+
 
   );
 }
