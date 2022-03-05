@@ -4,11 +4,11 @@ import HomeSignUp from "../Components/UserLogin/HomeSignUp"
 import SignUp from "../Components/UserLogin/SignUp"
 import Login from "../Components/UserLogin/Login"
 import { Route, Routes} from "react-router-dom"
-import TempHome from '../Components/UserLogin/TempHome'
 import { Home } from '../Components/Pages/Home'
 import { User } from '../Components/User'
 import { UserDetails } from '../Components/UserDetails'
 import UserProfile from '../Components/Pages/UserProfile'
+import VerticalTabs from "../Components/Pages/SettingPage"
 
 
 function RouteItem() {
@@ -19,6 +19,7 @@ function RouteItem() {
         <Route path="/account/password/reset" element={<ForgetPass/>} />
         <Route path='/accounts/signup/' element={<SignUp/>} />
         <Route path='/accounts/login' element={<Login/>}/>
+        <Route path="/accounts/edit" element={<VerticalTabs/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path=':id/' element={<UserDetails/>}>
         </Route>

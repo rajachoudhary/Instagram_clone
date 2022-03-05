@@ -6,11 +6,34 @@ import { useSelector } from 'react-redux'
 import { Link, Navigate } from 'react-router-dom'
 
 
+
 function UserProfile() {
 
     const  { userName, userCaption ,profileName, userImg,userNumPosts,userFollower,userFollowing,userPosts, getDataLoggedUser,userId } = useContext(UserDataContext)
     const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
     const [showHide, setShowHide] = useState(false)
+
+    const [post, setPost] = useState(true)
+    const [saved, setSaved] = useState(false)
+    const [tagged, setTagged] = useState(false)
+
+    const showPost = () => {
+        setPost(true)
+        setSaved(false)
+        setTagged(false)
+    }
+
+    const showSaved = () => {
+        setPost(false)
+        setSaved(true)
+        setTagged(false)
+    }
+
+    const showTagged = () => {
+        setPost(false)
+        setSaved(false)
+        setTagged(true)
+    }
 
     useEffect(() => {
      getDataLoggedUser()
@@ -41,13 +64,57 @@ function UserProfile() {
         <hr className={Styles.hrlineforprofile} />
 
         <div className={Styles.profilethreebtn}>
-            <button> <img className={Styles.profileBtnIcongrid} src="https://i.ibb.co/wwG6MWp/icons8-grid-64-1.png" height={"13px"} width={"13px"} alt="" /> POSTS</button>
-            <button> <img className={Styles.profileBtnIcon} src="https://i.ibb.co/4M7rwDZ/icons8-bookmark-64.png" height={"17px"}  width={"17px"}  alt="" /> SAVED</button>
-            <button> <img  className={Styles.profileBtnIcon} src="https://i.ibb.co/XSzT1P6/icons8-user-location-64.png" height={"17px"}  width={"17px"} alt="" />  TAGGED</button>
+            <button className={post ? Styles.showPostBtn : Styles.tappedPost}  onClick={showPost} > <img className={Styles.profileBtnIcongrid} src="https://i.ibb.co/wwG6MWp/icons8-grid-64-1.png" height={"13px"} width={"13px"} alt="" /> POSTS</button>
+            <button className={saved ? Styles.showSavedBtn  : Styles.tappedSaved}  onClick={showSaved}  > <img className={Styles.profileBtnIcon} src="https://i.ibb.co/4M7rwDZ/icons8-bookmark-64.png" height={"17px"}  width={"17px"}  alt="" /> SAVED</button>
+            <button className={tagged ? Styles.showTaggedBtn  : Styles.tappedTagged}  onClick={showTagged}  > <img  className={Styles.profileBtnIcon} src="https://i.ibb.co/XSzT1P6/icons8-user-location-64.png" height={"17px"}  width={"17px"} alt="" />  TAGGED</button>
         </div>
 
-        <div className={Styles.userPosts} >
+        <div className={Styles.MainPostResponsiveDiv} >
+ 
+        <div className={ post ? Styles.userPosts : Styles.userPostHide } >
                  {userPosts.map((post) => {
+                     return (
+                     <div key={post.id} className={Styles.likeCommentUp}  onMouseEnter={() => setShowHide(true)} onMouseLeave={() => setShowHide(false)} >
+                       <div className={showHide ? Styles.likeCommentDiv : Styles.likeCommentDivDis} >
+                           
+                          <div className={Styles.likeDiv} >
+                              <img src="https://i.ibb.co/QkzwjHN/icons8-heart-30.png" height={"40px"} width={"40px"} alt="" />
+                              <p>{post.likes}</p>
+                          </div>
+
+                          <div className={Styles.commentDiv} >
+                             <img src="https://i.ibb.co/nCFXgnW/icons8-comment-67.png" height={"35px"} width={"35px"} alt="" />
+                             <p>{post.comments.length}</p>
+                          </div>
+                       </div>
+                         
+
+                         < img className={Styles.imageShown} height={"280vh"} width={"365vw"} src={post.img} alt=""/>
+                     </div>     
+                     )
+                    })}
+        </div>
+        
+        <p className={saved ? Styles.onlyuser : Styles.onlyuserHide} >Only you can see what you're saved</p>
+       <div className={saved ? Styles.savedMainContainer : Styles.savedHide}>
+         <div className={Styles.savedPageProfile} >
+            <div className={Styles.savedDiv} >
+                {
+                    userPosts.map((p) => {
+                        return (
+                            <div>
+                                <img src={p.img} alt="" height={"160px"} width={"160px"} />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+         </div>
+        </div>  
+
+
+        <div className={tagged ? Styles.userTagged : Styles.userTaggedHide} >
+                 {[userPosts[0]].map((post) => {
                      return (
                      <div key={post.id} className={Styles.likeCommentUp}  onMouseEnter={() => setShowHide(true)} onMouseLeave={() => setShowHide(false)} >
                        <div className={showHide ? Styles.likeCommentDiv : Styles.likeCommentDivDis} >
@@ -68,6 +135,8 @@ function UserProfile() {
                      </div>     
                      )
                     })}
+        </div>
+
         </div>
 
         <div className={Styles.footerProfilePage} >
