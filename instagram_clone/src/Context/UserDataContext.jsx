@@ -13,6 +13,7 @@ export const UserDataContextProvider = ({ children }) => {
   const [userFollower, setUserFollower] = useState("");
   const [userFollowing, setUserFollowing] = useState("");
   const [userPosts, setUserPosts] = useState("");
+  const [userCaption, setUserCaption] = useState("")
 
   const getDataLoggedUser = () => {
     const userValues = getValue("loggedUserId");
@@ -25,6 +26,7 @@ export const UserDataContextProvider = ({ children }) => {
     setUserFollower(userValues[6]);
     setUserFollowing(userValues[7]);
     setUserPosts(userValues[8]);
+    setUserCaption(userValues[9])
   };
 
   const updateLoggedUser = (totalData, i) => {
@@ -38,6 +40,7 @@ export const UserDataContextProvider = ({ children }) => {
       totalData[i].no_of_followers,
       totalData[i].no_of_follwing,
       totalData[i].post,
+      totalData[i].details
     ]);
   };
 
@@ -55,6 +58,7 @@ export const UserDataContextProvider = ({ children }) => {
         userNumPosts,
         userFollowing,
         userPosts,
+        userCaption
       }}
     >
       {children}
