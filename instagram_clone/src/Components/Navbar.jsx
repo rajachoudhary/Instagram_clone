@@ -191,13 +191,16 @@ export default function Navbar() {
   const handleSearch = ()=>{
     navigate(`/${user}`)
   }
+  const handleClickOpen = ()=>{
+    
+  }
 
   // React.useEffect(()=>{
 
   // })
   return (
 
-    
+
     <Box className={styles.navbar_container}   sx={{ flexGrow: 1 }}>
       <AppBar style={{background:"white"}} position="static">
         <Toolbar style={{width:"75%",margin:"auto"}}>
@@ -228,8 +231,8 @@ export default function Navbar() {
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <AddBoxOutlinedIcon/>
-              </IconButton>
-            <IconButton  size="large"  color="inherit">
+            </IconButton>
+            <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
 
             </IconButton>
@@ -254,10 +257,7 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       {renderMenu}
+      <UploadImage  />
     </Box>
-
-
-  
-
   );
 }
