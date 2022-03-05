@@ -19,14 +19,14 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import {SlowMotionVideo } from '@material-ui/icons';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Button } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
 import { Link } from "react-router-dom"
-import { UploadImage } from './UploadImage/UploadImage';
+// import { UploadImage } from './UploadImage/UploadImage';
 import {ReactComponent as Home} from "../../src/Svgfile/Home.svg"
 import {ReactComponent as Add} from "../../src/Svgfile/Add.svg"
 import {ReactComponent as Explore} from "../../src/Svgfile/Explore.svg"
@@ -81,7 +81,7 @@ export default function Navbar() {
   const [user, setUser] = React.useState("")
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  
+
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -183,12 +183,12 @@ export default function Navbar() {
       </MenuItem>
 
       <div className={styles.dropDown_content}>
-                  <MenuItem className={styles.content}  onClick={handleMenuClose}><Profile/> <span>Profile</span></MenuItem>
-                  <MenuItem className={styles.content} onClick={handleMenuClose}><Saved/><span>Saved</span></MenuItem>
-                  <MenuItem className={styles.content} onClick={handleMenuClose}><BookmarkBorderIcon/><span>Setting</span></MenuItem>
-                  <MenuItem className={styles.content} onClick={handleMenuClose}><Switch/><span>Switch Account</span></MenuItem>
-                  <hr />
-                  <MenuItem className={styles.content} onClick={() => dispatch(logout_user()) }>Logout</MenuItem>
+          <MenuItem className={styles.content}  onClick={handleMenuClose}><Profile/> <span>Profile</span></MenuItem>
+          <MenuItem className={styles.content} onClick={handleMenuClose}><Saved/><span>Saved</span></MenuItem>
+          <MenuItem className={styles.content} onClick={handleMenuClose}><BookmarkBorderIcon/><span>Setting</span></MenuItem>
+          <MenuItem className={styles.content} onClick={handleMenuClose}><Switch/><span>Switch Account</span></MenuItem>
+          <hr />
+          <MenuItem className={styles.content} onClick={() => dispatch(logout_user()) }>Logout</MenuItem>
       </div>
       
 
@@ -238,10 +238,14 @@ export default function Navbar() {
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <AddBoxOutlinedIcon/>
+
+              </IconButton>
+
             </IconButton>
+
             <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
-
+              
             </IconButton>
             <IconButton size="large"  style={{marginTop:"5px"}} color="inherit">
               <Link to="./explore" ><Explore/></Link>
@@ -266,5 +270,6 @@ export default function Navbar() {
       {renderMenu}
       <UploadImage  />
     </Box>
+
   );
 }
