@@ -82,6 +82,7 @@ export default function Navbar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -110,7 +111,14 @@ export default function Navbar() {
       className={styles.dropdown}
     >
 
+
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+
+      <MenuItem onClick={() => {
+        navigate("/profile")
+        handleMenuClose()
+      }}>Profile</MenuItem>
+
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -190,14 +198,16 @@ export default function Navbar() {
   const handleSearch = ()=>{
     navigate(`/${user}`)
   }
+  const handleClickOpen = ()=>{
+    
+  }
 
   // React.useEffect(()=>{
 
   // })
   return (
 
-    
-  
+
     <Box className={styles.navbar_container}   sx={{ flexGrow: 1 }}>
       <AppBar style={{background:"white"}} position="static">
         <Toolbar style={{width:"75%",margin:"auto"}}>
@@ -228,7 +238,11 @@ export default function Navbar() {
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <AddBoxOutlinedIcon/>
+
               </IconButton>
+
+            </IconButton>
+
             <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
               
@@ -254,7 +268,8 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       {renderMenu}
+      <UploadImage  />
     </Box>
-     
+
   );
 }
