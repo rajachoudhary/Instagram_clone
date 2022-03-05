@@ -38,6 +38,7 @@ import {ReactComponent as Switch} from "../../src/Svgfile/Switch.svg"
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import styles from "./Navbar.module.css"
 import { style } from '@mui/system';
+import { UploadImage } from './UploadImage/UploadImage';
 
 
 const Search = styled('div')(() => ({
@@ -241,7 +242,7 @@ export default function Navbar() {
 
               </IconButton>
 
-            </IconButton>
+          
 
             <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
@@ -268,7 +269,7 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       {renderMenu}
-      <UploadImage  />
+      <UploadImage/>
     </Box>
 
   );

@@ -197,7 +197,7 @@ export const Home = () => {
           <div className={style.container1Footer}>
             {
 
-              "About.Help.Press.API.Jobs.Privacy.Terms.Locations.Top AccountsHashtags.LanguageEnglish"
+              
 
                 state.map((item)=>{
                     return(
