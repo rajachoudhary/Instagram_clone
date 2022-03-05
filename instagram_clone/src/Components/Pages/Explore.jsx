@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "../Navbar"
+import styles from "./Explore.module.css"
 
 export const Explore = () => {
     const [data,setData] = useState([])
@@ -12,17 +13,17 @@ export const Explore = () => {
         getData()
     },[])
   return (
-    <div style={{marginTop:"32px"}}>
+    <div className={styles.container}>
         <Navbar/>
         <div>
             {
                 data.map((item)=>{
                     return(
-                        <div key={item.id}>
+                        <div className={styles.container_data} key={item.id}>
                         {item.post.map((ite)=>{
                             return(
                                 <div>
-                                    <img src={ite.img} alt="" />
+                                    <img className={styles.images} src={ite.img} alt="" />
                                 </div>
                             )
                         })}
