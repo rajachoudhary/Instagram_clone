@@ -150,7 +150,7 @@ export default function Navbar() {
   };
   return (
     <Box className={styles.navbar_container}  sx={{ flexGrow: 1 }}>
-      <AppBar className={styles.appbar} >
+      <AppBar style={{backgroundColor:"white"}} >
         <Toolbar className={styles.navbar}>
           <Typography >
             <Link to={"/home"} > <img className={styles.logo} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" /> </Link>
