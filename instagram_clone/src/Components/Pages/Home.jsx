@@ -142,7 +142,7 @@ const postLike = (id)=>{
             {
                 state.map((item)=>{
                     return(
-                        <div className={style.rightContent}>
+                        <div key={item.id} className={style.rightContent}>
                             <div>
                                 <div className={style.profileImage}>
                                     <img src={item.profile_url} alt="profile_logo" />

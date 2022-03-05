@@ -8,6 +8,7 @@ import TempHome from '../Components/UserLogin/TempHome'
 import { Home } from '../Components/Pages/Home'
 import { User } from '../Components/User'
 import { UserDetails } from '../Components/UserDetails'
+import UserProfile from '../Components/Pages/UserProfile'
 
 
 function RouteItem() {
@@ -23,6 +24,7 @@ function RouteItem() {
         </Route>
         <Route path='users/*' element={<User/>} >    
         </Route>
+        <Route path="profile" element={<UserProfile/>} />
     </Routes>
     </>
   )
