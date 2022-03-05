@@ -197,7 +197,7 @@ export const Home = () => {
           <div className={style.container1Footer}>
             {
 
-              "About.Help.Press.API.Jobs.Privacy.Terms.Locations.Top AccountsHashtags.LanguageEnglish"
+              
 
                 state.map((item)=>{
                     return(
@@ -215,7 +215,7 @@ export const Home = () => {
 
             }
             <div className={style.container1Footer}>
-              © 2022 INSTAGRAM FROM META
+            "About.Help.Press.API.Jobs.Privacy.Terms.Locations.Top AccountsHashtags.LanguageEnglish" © 2022 INSTAGRAM FROM META
             </div>
           </div>
         </div>

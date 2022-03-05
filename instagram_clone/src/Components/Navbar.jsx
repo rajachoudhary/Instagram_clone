@@ -26,7 +26,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
 import { Link } from "react-router-dom"
-// import { UploadImage } from './UploadImage/UploadImage';
+import { UploadImage } from './UploadImage/UploadImage';
 import {ReactComponent as Home} from "../../src/Svgfile/Home.svg"
 import {ReactComponent as Add} from "../../src/Svgfile/Add.svg"
 import {ReactComponent as Explore} from "../../src/Svgfile/Explore.svg"
@@ -241,7 +241,7 @@ export default function Navbar() {
 
               </IconButton>
 
-            </IconButton>
+            
 
             <IconButton onClick={handleClickOpen} size="large"  color="inherit">
               <Add/>
@@ -268,7 +268,7 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       {renderMenu}
-      <UploadImage  />
+      <UploadImage/>
     </Box>
 
   );
