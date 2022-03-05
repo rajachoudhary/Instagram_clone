@@ -8,8 +8,8 @@ export const UploadImage = (props) => {
       };
   return (
     <div>
-        <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Popup Data</DialogTitle>
+      <Dialog onClose={handleClose} open={open}>
+          sdfgvfd
     </Dialog>
     </div>
   )
