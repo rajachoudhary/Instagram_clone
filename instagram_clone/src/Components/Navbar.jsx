@@ -182,7 +182,7 @@ export default function Navbar() {
               <Add/>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Explore/>
+              <Link to="/explore" ><Explore/></Link>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
              <Heart/>
