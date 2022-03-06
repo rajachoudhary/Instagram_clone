@@ -3,7 +3,7 @@ import { UserDataContext } from '../../Context/UserDataContext'
 import Navbar from "../Navbar"
 import Styles from "../../CSS/userProfile.module.css"
 import { useSelector } from 'react-redux'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 
 
@@ -12,6 +12,8 @@ function UserProfile() {
     const  { userName, userCaption ,profileName, userImg,userNumPosts,userFollower,userFollowing,userPosts, getDataLoggedUser,userId } = useContext(UserDataContext)
     const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
     const [showHide, setShowHide] = useState(false)
+    
+    const navigate = useNavigate()
 
     const [post, setPost] = useState(true)
     const [saved, setSaved] = useState(false)
@@ -47,7 +49,7 @@ function UserProfile() {
            <div>
                <div className={Styles.userNameDiv} >
                    <h1>{userName}</h1>
-                   <button>Edit Profile</button>
+                   <button onClick={() => navigate("/accounts/edit")} >Edit Profile</button>
                    <button><img src="https://i.ibb.co/Gtf5h6c/Screenshot-643-removebg-preview.png" height={"27px"} alt="" /></button>
                </div>
                <div className={Styles.followDiv} >

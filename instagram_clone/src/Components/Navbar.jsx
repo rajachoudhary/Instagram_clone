@@ -20,7 +20,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button, Container } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
@@ -131,7 +131,10 @@ export default function Navbar() {
         handleMenuClose()
       }}><Profile/> <span>Profile</span></MenuItem>
       <MenuItem className={styles.displayDropdown} onClick={handleMenuClose}><BookmarkBorderIcon/><span>Saved</span></MenuItem>
-      <MenuItem className={styles.displayDropdown} onClick={handleMenuClose}><Setting/><span>Setting</span></MenuItem>
+      <MenuItem  className={styles.displayDropdown} onClick={() => { 
+        navigate("/accounts/edit")
+        handleMenuClose()
+       }}><Setting/><span>Setting</span></MenuItem>
       <MenuItem className={styles.displayDropdown} onClick={handleMenuClose}><Switch/><span>Switch Account</span></MenuItem>
       <hr/>
       <MenuItem className={styles.displayDropdown} onClick={() => dispatch(logout_user()) }>Logout</MenuItem>

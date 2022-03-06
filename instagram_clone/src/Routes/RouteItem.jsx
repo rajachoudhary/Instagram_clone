@@ -9,6 +9,7 @@ import { User } from '../Components/User'
 import { UserDetails } from '../Components/UserDetails'
 import UserProfile from '../Components/Pages/UserProfile'
 import VerticalTabs from "../Components/Pages/SettingPage"
+import PageNotFound from "../Components/Pages/PageNotFound"
 
 
 function RouteItem() {
@@ -26,6 +27,7 @@ function RouteItem() {
         <Route path='users/*' element={<User/>} >    
         </Route>
         <Route path="profile" element={<UserProfile/>} />
+        <Route path="*" element={<PageNotFound/>} />
     </Routes>
     </>
   )
