@@ -6,7 +6,9 @@ import { ReactComponent as ThreeDots } from "../../Svgfile/threedots.svg";
 import { ReactComponent as Comment } from "../../Svgfile/comment.svg";
 import { ReactComponent as Share } from "../../Svgfile/share.svg";
 import { ReactComponent as Save } from "../../Svgfile/save.svg";
+import { ReactComponent as BlackSave } from "../../Svgfile/BlackSave.svg";
 import { ReactComponent as Smile } from "../../Svgfile/smile.svg";
+import { ReactComponent as RedHeart} from "../../Svgfile/redHeart.svg";
 import Navbar from "./../Navbar";
 import HomeSignUp from "../UserLogin/HomeSignUp";
 import { useSelector } from "react-redux";
@@ -19,10 +21,12 @@ import "slick-carousel/slick/slick-theme.css";
 export const Home = () => {
   const [state, setState] = useState([]);
   const [sliderRef, setSliderRef] = useState(null);
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState(true);
   const [comment, setComment] = useState([]);
   const [userComment, setUserComment] = useState({})
   const [pastComment,setPastComment] = useState([])
+  const [save,setsave] = useState(true)
+  const [follow,setFollow] = useState(true)
 
   const isAuth = useSelector((state) => state.auth.isUserLoggedIn);
 
@@ -36,10 +40,17 @@ export const Home = () => {
         console.log("err");
       });
   };
+  const handleSave = (id)=>{
+    save ? setsave(false) : setsave(true)
+  }
   const handleLike = (id) => {
     like ? setLike(false) : setLike(true);
+    
   };
-  
+  const handleFollow = (id)=>{
+    follow ? setFollow(false) : setFollow(true)
+    console.log(id)
+  }
   const handleComment = (comment,id) => {
 
     fetch(`https://json-server-skb-assignment.herokuapp.com/userDetails/${id}`)
@@ -61,7 +72,8 @@ export const Home = () => {
       body: JSON.stringify({...userComment,comments:[...pastComment,comment]}),
     });
    setComment("")
-   console.log(id)
+   getData()
+   console.log(pastComment)
 };
 
   const sliderSettings = {
@@ -85,7 +97,7 @@ export const Home = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 5,
           slidesToScroll: 4,
         }
       },
@@ -99,7 +111,7 @@ export const Home = () => {
       {
         breakpoint: 568,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 3,
         }
       }
@@ -120,7 +132,7 @@ export const Home = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [comment]);
 
   return !isAuth ? (
     <HomeSignUp />
@@ -145,7 +157,7 @@ export const Home = () => {
             <Slider ref={setSliderRef} {...sliderSettings} {...settings}>
               {state.map((item) => {
                 return (
-                  <div className={style.sliderProfileContainer}>
+                  <div className={style.sliderProfileContainer} key={item.id}>
                     <div className={style.SliderProfileImage}>
                       <img src={item.profile_url} alt="profile_logo" />
                     </div>
@@ -174,24 +186,20 @@ export const Home = () => {
                 </div>
                 <div className={style.postSvgIcon}>
                   <div>
-                    <Like
-                      onClick={() => handleLike(item.id)}
-                      style={{
-                        backgroundColor: like ? "red" : "white",
-                      }}
-                      className={style.like}
-                    />
+                    <div onClick={() => handleLike(item.id)}> {like ?  <Like /> : <RedHeart/>}</div> 
                     <Comment />
                     <Share />
                   </div>
-                  <div>
-                    <Save />
+                  <div onClick={()=> handleSave(item.id)}>
+                    <div>{save? <Save/> : <BlackSave/> }</div>
                   </div>
                 </div>
                 <h4 className={style.likes}>{item.post[0].likes} likes</h4>
-                <div className={style.username1}>{item.username} @{item.username} </div>
+                <div className={style.username1}>{item.username} <span style={{color:"blue",fontSize:"13px"}}>@{item.username}</span> </div>
                 <div className={style.allComment}>View all comments</div>
+                <div className={style.comments}>{item.comments}</div>
                 <div className={style.commentSection}>
+                
                   <div>
                     <Smile />
                     <input
@@ -221,7 +229,7 @@ export const Home = () => {
           </div>
           {state.map((item) => {
             return (
-              <div className={style.rightContent}>
+              <div className={style.rightContent} key={item.id}>
                 <div>
                   <div className={style.profileImage}>
                     <img src={item.profile_url} alt="profile_logo" />
@@ -243,7 +251,7 @@ export const Home = () => {
                                 </div>
                                 <div className={style.username2}>{item.username} </div>
                             </div>
-                            <div>Follow</div>
+                            <div onClick = {()=>handleFollow(item.id)}>{follow ?"Follow" : "Unfollow"}</div>
                         </div>
                     )
                 })

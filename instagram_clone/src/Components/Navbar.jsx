@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled} from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -23,6 +22,11 @@ import { Button, Container } from '@mui/material';
 import { Navigate, useNavigate } from 'react-router-dom';
 import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Button} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
 import { Link } from "react-router-dom"
 import { UploadImage } from './UploadImage/UploadImage';
@@ -32,13 +36,11 @@ import {ReactComponent as Explore} from "../../src/Svgfile/Explore.svg"
 import {ReactComponent as Heart} from "../../src/Svgfile/Heart.svg"
 import {ReactComponent as Message} from "../../src/Svgfile/Message.svg"
 import {ReactComponent as Profile} from "../../src/Svgfile/Profile.svg"
-import {ReactComponent as Saved} from "../../src/Svgfile/Saved.svg"
 import {ReactComponent as Switch} from "../../src/Svgfile/Switch.svg"
 import {ReactComponent as Setting} from "../../src/Svgfile/Setting.svg"
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import styles from "./Navbar.module.css"
 import { UserDataContext } from '../Context/UserDataContext';
-import { height } from '@mui/system';
 
 
 const Search = styled('div')(() => ({
@@ -52,15 +54,15 @@ const Search = styled('div')(() => ({
   borderRadius:"10px"
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+// const SearchIconWrapper = styled('div')(({ theme }) => ({
+//   padding: theme.spacing(0, 2),
+//   height: '100%',
+//   position: 'absolute',
+//   pointerEvents: 'none',
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+// }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
@@ -81,16 +83,16 @@ export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
-  const { userImg, getDataLoggedUser  } = React.useContext(UserDataContext)
+  const { userImg } = React.useContext(UserDataContext)
 
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
-  const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
+  
   
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -159,13 +161,16 @@ export default function Navbar() {
     <Box className={styles.navbar_container}  sx={{ flexGrow: 1 }}>
       <AppBar style={{backgroundColor:"white"}} >
         <Toolbar className={styles.navbar}>
+        <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ flexGrow: 1 }} />
           <Typography >
             <Link to={"/home"} > <img className={styles.logo} src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" /> </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ flexGrow: 1 }} />
-          <Search sx={{ display: { xs: 'none', sm: 'none' ,md:'flex' , lg:'flex' } }} style={{width:"30%"}}>
-            <Button onClick={()=>handleSearch()}><SearchIcon /></Button>
+          <Search onClick={()=>handleSearch()} sx={{ display: { xs: 'none', sm: 'none' ,md:'flex' , lg:'flex' } }} style={{width:"30%"}}>
+            <Button><SearchIcon /></Button>
             <StyledInputBase
               style={{marginLeft:"-50px"}}
               onChange={(e)=>setUser(e.currentTarget.value)}
@@ -174,7 +179,7 @@ export default function Navbar() {
             /> 
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box  sx={{ display: { xs: 'flex', md: 'flex' } }} >
+          <Box style={{marginRight:"85px"}} sx={{ display: { xs: 'flex', md: 'flex' } }} >
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Home/>
             </IconButton>
@@ -185,7 +190,7 @@ export default function Navbar() {
               <Add/>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Explore/>
+              <Link to="/explore" ><Explore/></Link>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
              <Heart/>
