@@ -32,6 +32,7 @@
     font-weight: 600;
     border: 0;
     border-radius: 5px;
+    cursor: pointer;
 }
 .buttn2{
     background-color: #0095f6;
@@ -39,10 +40,12 @@
     font-weight: 600;
     border: 0;
     border-radius: 5px; 
+    cursor: pointer;
 }
 .buttn3{
     border: 0;
     background-color: white;
+    cursor: pointer;
 }
 .userImage {
     border-radius: 80px;
