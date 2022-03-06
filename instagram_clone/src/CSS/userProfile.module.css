@@ -8,6 +8,7 @@
     .mainProfilePage{
         background : rgb(250,250,250);
         font-family: "Segoe UI",Helvetica,Arial,sans-serif;
+        padding-top: 80px;
     }
 
 
@@ -51,7 +52,8 @@
     background-color: white;
     border-radius: 3px;
     font-weight: 600;
-    padding: 8px;
+    align-items: center;
+    padding: 4px 8px 8px 8px;
     font-size: 14.5px;
     cursor: pointer;
 }
