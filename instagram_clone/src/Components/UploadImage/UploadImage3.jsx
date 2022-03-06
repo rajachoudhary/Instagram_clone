@@ -53,8 +53,8 @@ const handleChange9=()=>{
       <Dialog className={styles.diag} onClose={handleClose2} open={open}>    
         <div>
             <div className={styles.funct_nav} >
-            <button  >3perv</button>
-            <button onClick={()=>handleClose2() }>next</button>
+            <button></button>
+            <button onClick={()=>handleClose2() }><span style={{color:"#0095f6",fontWeight:"700"}} >Next</span></button>
             </div>
             <hr />
 

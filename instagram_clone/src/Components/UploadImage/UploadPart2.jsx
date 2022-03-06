@@ -22,8 +22,8 @@ export const UploadPart2 = (props) => {
       <Dialog className={styles.diag} onClose={handleClose1} open={open}>    
         <div>
             <div className={styles.funct_nav} >
-            <button  >perv</button>
-            <button onClick={()=>handleClose1()} >next</button>
+            <button></button>
+            <button onClick={()=>handleClose1()}><span style={{color:"#0095f6",fontWeight:"700"}} >Next</span></button>
             </div>
             <hr />
             <div>
