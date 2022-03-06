@@ -74,8 +74,8 @@
 
 /* part4 */
 .container_p4{
-    height: 305px;
-    width: 600px;
+    height: 310px;
+    width: auto;
     display: flex;
 }
 .imageView_p4{
@@ -89,6 +89,7 @@
     gap: 5%;
 }
 .profile_img{
+    margin: 5px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
