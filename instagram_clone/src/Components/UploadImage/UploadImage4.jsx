@@ -1,4 +1,4 @@
-import { Button, Dialog, Fab } from '@mui/material';
+import {  Dialog } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react'
 import styles from "./UploadImage.module.css"
 import {v4 as uuid} from "uuid"
@@ -10,7 +10,7 @@ export const UploadPart4 = (props) => {
     const [loggedFetch,setLoggedFetch] = useState({})
     const [loggedPost,setLoggedPost] = useState([])
 
-    const {userId, userName , profileName, userImg, getDataLoggedUser  } = useContext(UserDataContext)
+    const {userId, userName , userImg  } = useContext(UserDataContext)
 
     const [user,setUser] = useState([])
     const { onClose, selectedValue, open } = props;

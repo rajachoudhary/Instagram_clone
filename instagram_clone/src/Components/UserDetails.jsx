@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Outlet, Route, Routes, useParams } from 'react-router-dom'
-import PersonIcon from '@mui/icons-material/Person';
+import {  useParams } from 'react-router-dom'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Navbar from './Navbar'
 import Styles from "./userDetails.module.css"
-import { style } from '@mui/system';
-import GridOnIcon from '@mui/icons-material/GridOn';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { Posts } from './Posts';
 export const UserDetails = () => {
     const [userData,setUserData] = useState([])
     const [follow,setFollow] = useState("Follow")

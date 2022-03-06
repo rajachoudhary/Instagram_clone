@@ -15,10 +15,8 @@ import { useSelector } from "react-redux";
 import UserCard from "../UserLogin/UserCard";
 import Slider from "react-slick";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ListItemSecondaryAction } from "@material-ui/core";
 
 export const Home = () => {
   const [state, setState] = useState([]);
@@ -238,7 +236,7 @@ export const Home = () => {
                   </div>
                   <div className={style.username2}>{item.username} </div>
                 </div>
-                <div onClick = {()=>handleFollow(item.id)}>{follow ?"Follow" : "Unfollow"}</div>
+                <div>Follow</div>
               </div>
             );
           })}

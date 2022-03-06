@@ -9,7 +9,7 @@ import { Link, Navigate } from 'react-router-dom'
 
 function UserProfile() {
 
-    const  { userName, userCaption ,profileName, userImg,userNumPosts,userFollower,userFollowing,userPosts, getDataLoggedUser,userId } = useContext(UserDataContext)
+    const  { userName, userCaption ,profileName, userImg,userNumPosts,userFollower,userFollowing,userPosts, getDataLoggedUser } = useContext(UserDataContext)
     const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
     const [showHide, setShowHide] = useState(false)
 
