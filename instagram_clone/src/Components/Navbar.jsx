@@ -173,7 +173,7 @@ export default function Navbar() {
             /> 
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box  sx={{ display: { xs: 'flex', md: 'flex' } }} >
+          <Box style={{marginRight:"70px"}} sx={{ display: { xs: 'flex', md: 'flex' } }} >
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Home/>
             </IconButton>
