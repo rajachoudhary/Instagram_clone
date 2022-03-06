@@ -23,9 +23,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import {ReactComponent as Massenger} from "../../src/Svgfile/messenger.svg"
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button} from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch} from 'react-redux';
+// import { Button} from '@mui/material';
+// import { useNavigate } from 'react-router-dom';
+// import { useDispatch} from 'react-redux';
 
 import { logout_user } from "../Components/../Redux/Auth/auth.actions"
 import { Link } from "react-router-dom"
@@ -83,11 +83,15 @@ export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState("")
-  const { userImg } = React.useContext(UserDataContext)
+  const { userImg ,getDataLoggedUser } = React.useContext(UserDataContext)
 
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    getDataLoggedUser()
+  }, [])
   
   
 
@@ -169,8 +173,8 @@ export default function Navbar() {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ flexGrow: 1 }} />
-          <Search onClick={()=>handleSearch()} sx={{ display: { xs: 'none', sm: 'none' ,md:'flex' , lg:'flex' } }} style={{width:"30%"}}>
-            <Button><SearchIcon /></Button>
+          <Search  sx={{ display: { xs: 'none', sm: 'none' ,md:'flex' , lg:'flex' } }} style={{width:"30%"}}>
+            <Button  onClick={()=>handleSearch()} >< SearchIcon /></Button>
             <StyledInputBase
               style={{marginLeft:"-50px"}}
               onChange={(e)=>setUser(e.currentTarget.value)}
@@ -180,7 +184,7 @@ export default function Navbar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box style={{marginRight:"85px"}} sx={{ display: { xs: 'flex', md: 'flex' } }} >
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton onClick={() => navigate("/")} size="large" aria-label="show 4 new mails" color="inherit">
               <Home/>
             </IconButton>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">

@@ -4,6 +4,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Navbar from './Navbar'
 import Styles from "./userDetails.module.css"
+import Footer from "./Pages/Footer"
+
 export const UserDetails = () => {
     const [userData,setUserData] = useState([])
     const [follow,setFollow] = useState("Follow")
@@ -76,6 +78,7 @@ export const UserDetails = () => {
                 })
             }
     
+        <Footer/>
         </div>
       ) 
 }

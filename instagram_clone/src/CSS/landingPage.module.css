@@ -16,6 +16,7 @@
     padding: 2.5px;
     justify-content: center;
     margin: auto;
+    cursor: pointer;
 }
 .sliderContainer{
     padding: 10px;
@@ -46,6 +47,7 @@
     height: 20px;
     width: 20px;
     background-color: white;
+    cursor: pointer;
 }
 .rightSliderButtton{
     margin-top:30px; 
@@ -59,6 +61,7 @@
     height: 20px;
     width: 20px;
     background-color: white;
+    cursor: pointer;
 }
 
 
@@ -229,6 +232,7 @@
 .username2{
        margin-top: 15px;
     padding-left: 3px;
+    cursor: pointer;
 }
 .container1Footer{
     color: silver;
@@ -250,4 +254,8 @@
 }
 input:focus{
     outline: none;
+}
+
+.followBtn123{
+    cursor: pointer;
 }

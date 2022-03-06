@@ -210,7 +210,7 @@ export const Home = () => {
                     />
                   </div>
                   <div>
-                    <div onClick={()=>handleComment(comment,item.id)}>Post</div>
+                    <div style={{cursor : "pointer"}} onClick={()=>handleComment(comment,item.id)}>Post</div>
                   </div>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export const Home = () => {
                   </div>
                   <div className={style.username2}>{item.username} </div>
                 </div>
-                <div>Follow</div>
+                <div className={style.followBtn123} >Follow</div>
               </div>
             );
           })}
