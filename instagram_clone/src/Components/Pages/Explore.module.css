@@ -1,0 +1,23 @@
+.container{
+    margin-top: 32px;
+}
+.container_data{
+    padding: 5%;
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.image_div{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 2%;
+}
+.images{
+    width: 250px;
+    height: 250px;
+    
+}
+.images:hover{
+    opacity: 0.8;
+}
