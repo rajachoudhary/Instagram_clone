@@ -42,20 +42,16 @@ export const UploadPart4 = (props) => {
     <div>
       <Dialog className={styles.diag} onClose={handleClose3} open={open}>    
         <div>
-            <div className={styles.funct_nav} >
-            <button  >3perv</button>
-            {
-                user.map((itm)=>{
-                    return <button onClick={()=>handleAdd(itm.id)} >Share</button>
-                })
-            }
+            <div className={styles.funct_nav4} >
+              <button></button>
+            <button onClick={()=>handleAdd()}>Share</button>
             </div>
             <hr />
 
 
-            <div className={styles.container_p3} >
+            <div className={styles.container_p4} >
                 <div>
-                <img className={styles.imageView_p3} src="https://i.ibb.co/QFhdByz/Instagram-logo-2016-svg.png" alt="img" />
+                <img className={styles.imageView_p4} src="https://i.ibb.co/QFhdByz/Instagram-logo-2016-svg.png" alt="img" />
                 </div>
                 <div>
                   <div className={styles.filters} >
@@ -65,13 +61,22 @@ export const UploadPart4 = (props) => {
                                 return(
                                     <div className={styles.profile} key={itm.id} >
                                         <img className={styles.profile_img} src={itm.profile_url} alt="" />
-                                        <h3>{itm.username}</h3>
+                                        <h5 style={{marginTop:"5px"}} >{itm.username}</h5 >
                                     </div>
                                 )
                             })
                         }
                         <div>
-                            <input type="text" onChange={(e)=>setData(e.currentTarget.value)} />
+                            <textarea placeholder='Write a caption ...' className={styles.input_data} type="text" onChange={(e)=>setData(e.currentTarget.value)} />
+                            <div className={styles.extra}>
+                            <hr />
+                            <p>Add Location</p>
+                            <hr />
+                            <p>Accessibility</p>
+                            <hr />
+                            <p>Advance Setting</p>
+                            <hr />
+                            </div>
                         </div>
                     </div>
                   </div>
