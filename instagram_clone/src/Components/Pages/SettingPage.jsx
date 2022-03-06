@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -9,6 +9,7 @@ import Styles from "../../CSS/settingpage.module.css"
 import { UserDataContext } from '../../Context/UserDataContext';
 import { useSelector } from 'react-redux';
 import { Link, Navigate } from "react-router-dom"
+import { getValue, updateValue } from '../../utils/localStorage';
 
 
 function TabPanel(props) {
@@ -46,16 +47,58 @@ function a11yProps(index) {
 
 export default function VerticalTabs() {
   const [value, setValue] = React.useState(0);
-  const { userName , profileName , userImg, getDataLoggedUser, userEmail  } = useContext(UserDataContext)
+  const { userName , profileName , userPassword, userImg, userEmail , userId } = useContext(UserDataContext)
 
-
+  const [oldPass, setOldPass] = useState("")
+  const [newPass, setNewPass] = useState("")
+  const [newPassC, setNewPassC] = useState("")
+  const [wrongD, setWrongD] = useState(false)
+  const [wrongS, setWrongS] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
 
+  const [loggedUser, setLoggedUser] = useState({})
 
-  useEffect(() => {
-    getDataLoggedUser()
-  },[])
+
+  const changePass = () => {
+    fetch(`https://json-server-skb-assignment.herokuapp.com/userDetails/${userId}`)
+    .then(res => res.json())
+    .then(result => setLoggedUser(result))
+    .catch(err => console.log(err))
+
+    if(newPass === newPassC){
+
+      if(userPassword === oldPass){
+        fetch(`https://json-server-skb-assignment.herokuapp.com/userDetails/${userId}`, {
+        method : "PATCH",
+        headers : { "content-type" : "application/json" },
+        body : JSON.stringify({...loggedUser, passowrd : newPassC})
+        })
+        setWrongD(false)  
+        setWrongS(false)
+        setSuccess(true)
+        const a = getValue("loggedUserId")
+        a[4] = newPassC
+        updateValue("loggedUserId", a)
+        setOldPass("")
+        setNewPass("")
+        setNewPassC("")
+      }
+      else{
+        setWrongD(true)  
+        setSuccess(false)
+      }
+
+    }
+    else{
+      setWrongS(true)  
+      setSuccess(false)
+    }
+
+    
+
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -64,7 +107,7 @@ export default function VerticalTabs() {
   return isAuth ? (
       <>
     <Navbar/>
-    <div style={{ border : "0.2px solid rgb(189, 185, 185)", margin : "auto" , width : "80%",marginTop : "100px"}} >
+    <div style={{ border : "0.2px solid rgb(189, 185, 185)", margin : "auto" , width : "70%",marginTop : "100px"}} >
 
     <Box 
       sx={{ flexGrow: 1, bgcolor: 'white', display: 'flex'}}
@@ -76,6 +119,7 @@ export default function VerticalTabs() {
         aria-label="Vertical tabs example"
         sx={{ borderColor: 'black' }}
         style={{ border : "0.2px solid rgb(189, 185, 185)", width : "260px" }}
+        className={Styles.tabsSection}
       >
         <Tab style={{ paddingRight : "130px" , height : "55px", color : "black", fontSize : "15px", width : "260px" }} label="Edit Profile" {...a11yProps(0)} />
         <Tab style={{ paddingRight : "80px" , height : "55px", color : "black", fontSize : "15px" , width : "260px"  }} label="Change Password" {...a11yProps(1)} />
@@ -93,7 +137,7 @@ export default function VerticalTabs() {
 
       </Tabs>
       <TabPanel value={value} index={0} className={Styles.underMain}  >
-          <div>
+          <div className={Styles.leftMainD} >
              <div className={Styles.UserNameDiv} >
                <img src={userImg} alt="" height={"45px"} width={"45px"} />
                <div className={Styles.userANDchange} >
@@ -134,7 +178,7 @@ export default function VerticalTabs() {
                <label>Gender</label> <input type="text" value={"Male"} />
              </div>
              <div className={Styles.suggestion} >
-               <label>Similar Account Suggestions</label> <input type="checkbox" checked/> <p>Include your account when recommending similar accounts people might want to follow.</p>
+               <label>Similar Account Suggestions</label> <input type="checkbox" /> <p>Include your account when recommending similar accounts people might want to follow.</p>
              </div>
              <div className={Styles.bothBtnSubandDis} >
                <button>Submit</button>
@@ -143,22 +187,45 @@ export default function VerticalTabs() {
           </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+          <div>
+            <div className={Styles.UserNameDiv} >
+               <img src={userImg} alt="" height={"45px"} width={"45px"} />
+               <div className={Styles.userProfile} >
+                 <p>{userName}</p>
+               </div>
+            </div>
+            <div className={Styles.oldPass} >
+               <label>Old Password</label> <input type="password" value={oldPass} onChange={e => setOldPass(e.currentTarget.value)} />
+             </div>
+             <div className={Styles.newPass} >
+               <label>New Password</label> <input type="password" value={newPass} onChange={e => setNewPass(e.currentTarget.value)} />
+             </div>
+             <div className={Styles.confirmPass} >
+               <label>Confirm New Password</label> <input type="password" value={newPassC} onChange={e => setNewPassC(e.currentTarget.value)}  />
+             </div>
+             <div className={Styles.bothBtn} >
+              <button onClick={() => changePass()} className={Styles.changePass}>Change Password</button>
+              <Link className={Styles.forgetChange} to={"/account/password/reset"} >Forgot Password?</Link>
+             </div>
+             <div className={Styles.OldWrongnotification} >{wrongD ? <p>Your old password was entered incorrectly. Please enter it again.</p> : <p></p>}</div>
+             <div className={Styles.notification} >{wrongS ? <p>Please make sure both passwords match.</p> : <p></p>}</div>
+             <div className={Styles.successN} >{success ? <p>Password Changed!</p> : <p></p>}</div>
+          </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+      
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+     
       </TabPanel>
       <TabPanel value={value} index={5}>
-        Item Six
+      
       </TabPanel>
       <TabPanel value={value} index={6}>
-        Item Seven
+        
       </TabPanel>
     </Box>
          

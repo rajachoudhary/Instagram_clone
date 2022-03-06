@@ -183,7 +183,7 @@ export default function Navbar() {
             /> 
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box style={{marginRight:"85px"}} sx={{ display: { xs: 'flex', md: 'flex' } }} >
+          <Box style={{marginRight:"55px"}} sx={{ display: { xs: 'flex', md: 'flex' } }} >
             <IconButton onClick={() => navigate("/")} size="large" aria-label="show 4 new mails" color="inherit">
               <Home/>
             </IconButton>
