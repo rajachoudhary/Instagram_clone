@@ -27,13 +27,13 @@ export const UploadPart4 = (props) => {
             body: JSON.stringify(payload)
           };
           await fetch(
-            `https://json-server-skb-assignment.herokuapp.com/userDetails?`,
+            `https://json-server-skb-assignment.herokuapp.com/userDetails?username=masaischool`,
             config
           );
       }
 
       useEffect(()=>{
-          fetch("https://json-server-skb-assignment.herokuapp.com/userDetails?name=masaischool")
+          // fetch("https://json-server-skb-assignment.herokuapp.com/userDetails?name=masaischool")
           .then((r)=>r.json())
           .then((r)=>setUser(r))
       },[])
