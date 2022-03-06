@@ -1,9 +1,14 @@
-import './App.css';
+
+import RouteItem from './Routes/RouteItem';
+
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <h1>Instagram</h1>        
+      <RouteItem/>   
     </div>
   );
 }

@@ -1,0 +1,355 @@
+
+   *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .mainProfilePage{
+        background : rgb(250,250,250);
+        font-family: "Segoe UI",Helvetica,Arial,sans-serif;
+        padding-top: 80px;
+    }
+
+
+.level1Div{
+    margin: auto;
+    width: 79%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.userNameDiv {
+    display: flex;
+    align-items: center;
+} 
+
+.userNameDiv button {
+    height: 32px;
+}
+
+.userImage {
+    border-radius: 80px;
+    margin-left: 35%;
+    margin-top: 20px;
+    margin-right: 5vw;
+}
+
+.userNameDiv h1 {
+    font-weight:lighter;
+    font-size: 28px;
+    color: rgb(31, 30, 30);
+    margin-right: 20px;
+}
+
+.userNameDiv{
+    margin-top: 25px;
+}
+
+.userNameDiv :nth-child(2){
+    border: 0.5px solid rgb(189, 185, 185);
+    background-color: white;
+    border-radius: 3px;
+    font-weight: 600;
+    align-items: center;
+    padding: 4px 8px 8px 8px;
+    font-size: 14.5px;
+    cursor: pointer;
+}
+
+.userNameDiv :nth-child(3){
+    border: none;
+    background-color: transparent;
+    margin-left: 13px;
+    cursor: pointer;
+    padding-top: 2px;
+}
+
+.followDiv{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: rgb(59, 59, 59);
+}
+
+.usernameProfile{
+    font-weight: 600;
+    color: rgb(8, 8, 8);
+    margin-top: 15px;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.hrlineforprofile{
+    margin: auto;
+    width: 79%;
+    margin-top: 40px;
+}
+
+.profilethreebtn{
+    margin: auto;
+    width: 300px;
+}
+
+
+.profileBtnIcon{
+    position: relative;
+    top: 4px;
+}
+.profileBtnIcongrid{
+    position: relative;
+    top: 1px;
+}
+
+.userPosts{
+    margin: auto;
+    width: 79%;
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    gap: 5px;
+}
+
+.imageShown:hover {
+    cursor: pointer;
+    filter: brightness(60%);
+}
+
+
+.likeDiv, .commentDiv{
+    align-items: center;
+    color: white;
+     font-weight: 600;
+     display: flex;
+     font-size: 18px;
+}
+
+.likeDiv, .commentDiv p{
+    /* margin-top: 5px; */
+    margin-left: 2px;
+}
+
+.likeCommentUp{
+    position: relative;
+}
+
+.likeCommentDiv {
+    display: block;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 120px;
+    left: 120px;
+}
+
+.likeCommentDivDis{
+    display: none;
+}
+
+.footerSignUpLink{
+    margin-bottom: 10px;
+}
+
+    
+.footerSignUpLink{
+    margin-bottom: 25px;
+}
+
+.footerProfilePage{
+    text-align: center;
+    margin-top: 3%;
+    padding-bottom: 5%;
+}
+
+.footerPages{
+    text-decoration: none;
+    color: grey;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.footerProfilePage :nth-child(2) {
+    font-size: 13px;
+    color: grey;
+}
+
+.languageList{
+    border: none;
+}
+
+.savedMainContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.savedPageProfile{
+    margin: auto;
+    width: 25%; 
+}
+
+.savedDiv{
+    position: relative;
+    left: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.savedDiv :hover {
+    filter: brightness(60%);
+    cursor: pointer;
+}
+.onlyuser{
+    position: relative;
+    left: 14vw;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: grey;
+}
+
+
+.userTagged{
+    margin: auto;
+    width: 79%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: 5px;
+   
+}
+
+
+.userPostHide{
+    display: none;
+}
+
+.onlyuserHide, .savedHide {
+    display: none;
+}
+
+.userTaggedHide{
+    display: none;
+}
+
+.showPostBtn{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(85, 81, 81);
+    font-weight: 600;
+    border: none;
+    border-top: 2px solid black;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.showSavedBtn{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(85, 81, 81);
+    font-weight: 600;
+    border: none;
+    border-top: 2px solid black;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.showTaggedBtn{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(85, 81, 81);
+    font-weight: 600;
+    border: none;
+    border-top: 2px solid black;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.tappedPost{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.tappedSaved{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+.tappedTagged{
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    top: -3px;
+}
+
+/* .MainPostResponsiveDiv{
+    align-content: center;
+} */
+
+@media screen and (max-width: 940px){
+    .imageShown{
+        height: 200px;
+        width: 230px;
+    }
+
+    .likeDiv{
+        display: none;
+    }
+
+    .commentDiv{
+        display: none;
+    }
+    .level1Div{
+        margin: auto;
+        width: 79%;
+        display: grid;
+        grid-template-columns: 1fr 2fr ;
+        gap: 10px;
+       }
+    
+       .userImage{
+           margin-left: 5%;
+       }
+}
+
+
+@media screen and (max-width: 640px){
+    .level1Div{
+     grid-template-columns: 1fr 3fr;
+    }
+ 
+    .userImage{
+        height: 100px;
+        width: 100px;
+        margin-top: 35px;
+    }
+    .imageShown{
+        height: 120px;
+        width: 120px;
+        margin-left: 10px;
+    }
+    .savedPageProfile {
+       margin-left: 10px;
+    }
+ }

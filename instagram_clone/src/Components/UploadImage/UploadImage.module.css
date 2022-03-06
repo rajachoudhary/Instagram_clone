@@ -1,0 +1,120 @@
+.diag{
+    background: transparent;
+    
+}
+.dialog{
+    height: 450px;
+    width: 400px;
+    background-color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+.drag_element{
+    margin-top: 100px; 
+}
+.drag{
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(95, 95, 95);
+    margin-top: 10px;
+}
+.drag_button{
+    margin-top: 20px;
+}
+.drag_button_disp{
+    /* border: 1px solid red; */
+    border-radius: 10%;
+}
+
+
+/* part2 */
+.imageView_p2{
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+}
+.funct_nav{
+    display: flex;
+    padding: 2%;
+    gap: 85%;
+}
+.funct_nav>button{
+    background-color: white;
+    border: 0;
+}
+
+/* part 3 */
+.container_p3{
+    width: auto;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+.imageView_p3{
+    width: 250px;
+    height: 250px;
+}
+.fragments{
+    display: flex;
+    gap: 50px;
+    text-align: center;
+}
+.filters{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: auto auto auto;
+}
+.filters>button>img{
+    width: 70px;
+    height: 70px;
+    border: 0;
+}
+
+
+/* part4 */
+.container_p4{
+    height: 310px;
+    width: auto;
+    display: flex;
+}
+.imageView_p4{
+    width: 300px;
+    height: 300px;
+    background-color: black;
+}
+
+.profile{
+    display: flex;
+    gap: 5%;
+}
+.profile_img{
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.input_data{
+    margin-left: 5px;
+    width: 288px;
+    padding: 10px;
+    height: 160px;
+    border: 0;
+}
+.input_data:focus{
+    border: 0;
+}
+.extra>p{
+    padding: 5px;
+}
+.funct_nav4{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.funct_nav4>button{
+    background-color: white;
+    color: rgb(96, 96, 214);
+    font-weight: 700;
+    border: 0;
+    padding: 5px;
+}
