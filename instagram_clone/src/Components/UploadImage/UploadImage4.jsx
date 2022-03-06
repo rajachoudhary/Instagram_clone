@@ -1,11 +1,16 @@
 import { Button, Dialog, Fab } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from "./UploadImage.module.css"
 import {v4 as uuid} from "uuid"
+import { UserDataContext } from '../../Context/UserDataContext';
 
 export const UploadPart4 = (props) => {
     const [img,setImg] = useState("https://i.ibb.co/QFhdByz/Instagram-logo-2016-svg.png")
     const [data,setData] = useState("")
+    const [loggedFetch,setLoggedFetch] = useState({})
+    const [loggedPost,setLoggedPost] = useState([])
+
+    const {userId, userName , profileName, userImg, getDataLoggedUser  } = useContext(UserDataContext)
 
     const [user,setUser] = useState([])
     const { onClose, selectedValue, open } = props;
@@ -13,23 +18,43 @@ export const UploadPart4 = (props) => {
         onClose(selectedValue);
       };  
 
-      const handleAdd = async(id)=>{
+      const handleAdd = (e)=>{
+        e.preventDefault()
           const payload ={
               id:uuid(),
               img,
-              data
+              likes: 0,
+              comments: []
           }
-          const config = {
-            method: "POST",
+
+          fetch(`https://json-server-skb-assignment.herokuapp.com/userDetails/${userId}`)
+          .then((r)=>r.json())
+          .then((r)=>{
+              setLoggedFetch(r)
+              setLoggedPost(r.post)
+          }).catch(er=>{
+            console.log(er)
+          })
+          console.log(loggedFetch);
+          console.log(loggedPost);
+          fetch(`https://json-server-skb-assignment.herokuapp.com/userDetails/`,{
+            method:"POST",
             headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-          };
-          await fetch(
-            `https://json-server-skb-assignment.herokuapp.com/userDetails?`,
-            config
-          );
+                  "Content-Type": "application/json"
+                },
+            body: JSON.stringify({...loggedFetch,post:[...loggedPost,payload]})    
+          })
+          // const config = {
+          //   method: "PATCH",
+          //   headers: {
+          //     "Content-Type": "application/json"
+          //   },
+          //   body: JSON.stringify({...loggedFetch,post:[...loggedPost,payload]})
+          // };
+          // await fetch(
+          //   `https://json-server-skb-assignment.herokuapp.com/userDetails?id=${userId}`,
+          //   config
+          // );
       }
 
       useEffect(()=>{
@@ -42,36 +67,35 @@ export const UploadPart4 = (props) => {
     <div>
       <Dialog className={styles.diag} onClose={handleClose3} open={open}>    
         <div>
-            <div className={styles.funct_nav} >
-            <button  >3perv</button>
-            {
-                user.map((itm)=>{
-                    return <button onClick={()=>handleAdd(itm.id)} >Share</button>
-                })
-            }
+            <div className={styles.funct_nav4} >
+              <button></button>
+            <button onClick={handleAdd}>Share</button>
             </div>
             <hr />
 
 
-            <div className={styles.container_p3} >
+            <div className={styles.container_p4} >
                 <div>
-                <img className={styles.imageView_p3} src="https://i.ibb.co/QFhdByz/Instagram-logo-2016-svg.png" alt="img" />
+                <img className={styles.imageView_p4} src="https://i.ibb.co/QFhdByz/Instagram-logo-2016-svg.png" alt="img" />
                 </div>
                 <div>
                   <div className={styles.filters} >
                     <div>
-                        {
-                            user.map((itm)=>{
-                                return(
-                                    <div className={styles.profile} key={itm.id} >
-                                        <img className={styles.profile_img} src={itm.profile_url} alt="" />
-                                        <h3>{itm.username}</h3>
+                    <div className={styles.profile}  >
+                                        <img className={styles.profile_img} src={userImg} alt="" />
+                                        <h5 style={{marginTop:"5px"}} >{userName}</h5 >
                                     </div>
-                                )
-                            })
-                        }
                         <div>
-                            <input type="text" onChange={(e)=>setData(e.currentTarget.value)} />
+                            <textarea placeholder='Write a caption ...' className={styles.input_data} type="text" onChange={(e)=>setData(e.currentTarget.value)} />
+                            <div className={styles.extra}>
+                            <hr />
+                            <p>Add Location</p>
+                            <hr />
+                            <p>Accessibility</p>
+                            <hr />
+                            <p>Advance Setting</p>
+                            <hr />
+                            </div>
                         </div>
                     </div>
                   </div>
