@@ -55,6 +55,7 @@ export const UploadPart4 = (props) => {
           //   `https://json-server-skb-assignment.herokuapp.com/userDetails?id=${userId}`,
           //   config
           // );
+          handleClose3()
       }
 
       useEffect(()=>{

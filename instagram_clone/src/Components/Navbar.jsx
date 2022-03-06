@@ -136,7 +136,7 @@ export default function Navbar() {
         navigate("/profile")
         handleMenuClose()
       }}><Profile/> <span>Profile</span></MenuItem>
-      <MenuItem className={styles.displayDropdown} onClick={handleMenuClose}><BookmarkBorderIcon/><span>Saved</span></MenuItem>
+      <MenuItem className={styles.displayDropdown} onClick={handleMenuClose}><BookmarkBorderIcon style={{marginLeft:"-5px"}} /><span>Saved</span></MenuItem>
       <MenuItem  className={styles.displayDropdown} onClick={() => { 
         navigate("/accounts/edit")
         handleMenuClose()
