@@ -187,7 +187,7 @@ export default function Navbar() {
             <IconButton onClick={() => navigate("/")} size="large" aria-label="show 4 new mails" color="inherit">
               <Home/>
             </IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton onClick={() => navigate("/inbox")} size="large" aria-label="show 4 new mails" color="inherit">
               <Message/>
             </IconButton>
             <IconButton onClick={handleClickOpen} size="large" aria-label="show 4 new mails" color="inherit">
