@@ -1,3 +1,20 @@
+#INSTAGRAM_CLONE
+
+Instagram is an photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.It allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.
+
+## Pages Built and steps to run the project
+
+First step clone the repository using the git command - git clone https://github.com/skbhoi2001/Instagram_clone.git
+
+Go to PharmEasy Folder git command - cd Instagram_clone/instagram_clone
+
+click on pages folder
+
+
+### 1. Landing Page
+       If new user enter in the system then the user will redirect to the login page
+       
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
