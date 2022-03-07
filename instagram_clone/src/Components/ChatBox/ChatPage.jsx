@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../Navbar'
 import Styles from "../ChatBox/chatbox.module.css"
 import { UserDataContext } from '../../Context/UserDataContext'
+import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 
 function ChatPage() {
 
@@ -10,6 +12,8 @@ function ChatPage() {
     const [sendBtn, setSendBtn] = useState(false)
 
     const [totalMsg, setTotalMsg] = useState([])
+
+    const  isAuth  = useSelector((state) => state.auth.isUserLoggedIn)
 
     const [msg, setMsg] = useState("")
 
@@ -37,7 +41,7 @@ function ChatPage() {
     }, [msg,sendMsg,setMsg])
 
 
-  return (
+  return isAuth ? (
       <>
        <Navbar/>
        <div className={Styles.mainDivChat} >
@@ -103,7 +107,7 @@ function ChatPage() {
             </div>
         </div> 
       </>
-  )
+  ) : <Navigate to={"/"}/>
 }
 
 export default ChatPage
