@@ -1,0 +1,199 @@
+.mainDivChat{
+    border: 0.4px solid rgb(211, 204, 204);
+    margin: auto;
+    width: 63%;
+    height: 540px;
+    margin-top: 80px;
+    margin-left: 20.5%;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+}
+
+.leftDiv{
+    height: 540px;
+    border-right:  0.4px solid rgb(211, 204, 204);
+}
+
+.leftPart{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom: 0.4px solid rgb(211, 204, 204) ;
+}
+
+.leftPart p {
+    font-size: 19px;
+    /* margin-left: 100px; */
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.leftPart :nth-child(2){
+    /* margin-left: 10px; */
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+
+.leftPart :nth-child(3){
+    position: relative;
+    right: -75px;
+    cursor: pointer;
+}
+
+.initialChatPage{
+    text-align: center;
+    margin-top: 110px;
+}
+
+.initialChatPage :nth-child(2){
+    font-size: 25px;
+    font-weight: 100;
+}
+
+.initialChatPage :nth-child(3){
+    font-weight: 400;
+    margin-top: 5px;
+    color: gray;
+}
+
+
+.initialChatPage :nth-child(4){
+    margin-top: 25px;
+    background-color: rgb(0,149,246);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 6px 10px 7px 10px;
+}
+
+.leftpart2{
+    display: flex;
+    margin-top: 7px;
+    padding-top: 8px;
+    padding-left: 13px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    /* background-color: rgb(241, 240, 240); */
+    width: 335px;
+}
+.leftpart2:hover {
+    display: flex;
+    margin-top: 7px;
+    padding-top: 8px;
+    padding-left: 13px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+    width: 335px;
+}
+
+
+.leftpart2 img {
+    border-radius: 50px;
+}
+
+.leftpart2 > div{
+    margin-left: 10px;
+    margin-top: 12px;
+}
+
+.topRightNext{
+    display: flex;
+    padding-top: 16px;
+    padding-left: 30px;
+    padding-bottom: 14px;
+    border-bottom: 0.4px solid rgb(211, 204, 204) ;
+}
+
+.topRightNext :nth-child(1){
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.topRightNext :nth-child(2){
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.topRightNext :nth-child(3){
+    margin-left: 350px;
+    cursor: pointer;
+}
+
+.chatBox{
+    height: 400px;    
+}
+
+.inboxDiv{
+    display: flex;
+    position: relative;
+}
+
+.inputSend{
+    position: absolute;
+    left: 17px;
+    bottom: -20px;
+    height: 45px;
+    width: 520px;
+    border: 0.4px solid rgb(211, 204, 204);
+    border-radius: 25px;
+    font-size: 15px;
+    padding-left: 52px;
+}
+
+.inboxDiv :nth-child(1){
+    z-index: 1;
+    position: relative;
+    top: 15px;
+    left: 25px;    
+}
+
+/* .inboxDiv :nth-child(3){
+    z-index: 1;
+    position: relative;
+    left: 410px;
+    top: 15px;
+} */
+
+.likeandupload{
+    z-index: 1;
+    position: relative;
+    left: 410px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.sendBtnMsg{
+    z-index: 1;
+    position: relative;
+    left: 440px;
+    top: 13px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: transparent;
+    color: rgb(0,149,246);
+    border: none;
+    font-size: 16px;
+}
+
+.msgtoperson{
+    float: right;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: rgb(239,239,239);
+    margin: 10px;
+}
+
+.chatting{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}

@@ -110,7 +110,7 @@
 
 .showHide{
     position: relative;
-    top: 78px;
+    top: 80px;
     left: 110px;
     background-color:rgb(250,250,250); 
     border: none;
@@ -336,7 +336,7 @@
 
 .signUpshowHide{
     position: relative;
-    bottom: 112px;
+    bottom: 121px;
     left: 110px;
     background: transparent;
     border: none;
