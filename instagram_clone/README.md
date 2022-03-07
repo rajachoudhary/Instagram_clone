@@ -13,7 +13,7 @@ click on pages folder
 
 ### 1. Landing Page
        If new user enter in the system then the user will redirect to the login page
-    ![1](https://raw.githubusercontent.com/skbhoi2001/Instagram_clone/main/instagram_clone/images/login.png)
+![r](https://raw.githubusercontent.com/skbhoi2001/Instagram_clone/main/instagram_clone/images/login.png)
 
 
 # Getting Started with Create React App
