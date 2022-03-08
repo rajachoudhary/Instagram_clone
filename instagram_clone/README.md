@@ -1,4 +1,4 @@
-#INSTAGRAM_CLONE
+# INSTAGRAM_CLONE
 
 Instagram is an photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.It allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.
 
@@ -14,9 +14,41 @@ click on pages folder
 ### 1. Landing Page
 If new user enter in the system then the user will redirect to the login page
 ![r](https://raw.githubusercontent.com/skbhoi2001/Instagram_clone/main/instagram_clone/images/login.png)
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/signup.png?raw=true)
 
 ### 2. Home Page
+If user complete the authentication process then it will com to the home page
 ![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/home.png?raw=true)
+
+### 3. Explore Page
+Here user see all the top rated posts 
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/explore%20page.png?raw=true)
+
+### 3. Profile Page
+Here the logedIn user see all the data
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/profile%20page.png?raw=true)
+
+### 4. Edit Page
+Here user can edit the items
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/edit%20profile.png?raw=true)
+
+### 5. Change Password
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/change%20password.png?raw=true)
+
+### 6. Search Bar
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/change%20password.png?raw=true)
+
+### 7. Search Result
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/searchResult.png?raw=true)
+
+### 8. Post
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/post1.png?raw=true)
+
+### 9. Post Filter
+![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/postFilter.png?raw=true)
+
+### 10. 
+
 
 
 # Getting Started with Create React App
