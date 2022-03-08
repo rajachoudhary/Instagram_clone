@@ -16,8 +16,8 @@ https://json-server-skb-assignment.herokuapp.com/
 ## Team Members
 
 ### 1. Soumyak Kumar Bhoi
-### 1. Chetan Mahawar
-### 1. Raja Choudhary
+### 2. Chetan Mahawar
+### 3. Raja Choudhary
 
 
 ## Functionality
