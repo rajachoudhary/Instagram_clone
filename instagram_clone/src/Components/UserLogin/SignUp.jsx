@@ -10,14 +10,24 @@ const initUserDetails = {
     id : v4(),
     name : "",
     username : "",
+    details : "New account created",
     phone : "",
     email : "",
     passowrd : "",
-    profile_url : "",
-    no_of__post : "",
-    no_of_followers : "",
-    no_of_follwing : "",
-    post : [],
+    profile_url : "https://i.ibb.co/k1tnr3P/images-removebg-preview.png",
+    no_of__post : "0",
+    no_of_followers : "0",
+    Add_post : [],
+    no_of_follwing : "0",
+    comments : [],
+    post: [
+        {
+          id: 1206,
+          img: "https://i.ibb.co/k1tnr3P/images-removebg-preview.png",
+          likes: 0,
+          comments: []
+        }
+      ]
 }
 
 function SignUp() {
