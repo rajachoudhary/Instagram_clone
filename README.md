@@ -13,9 +13,10 @@ Instagram is an photo and video sharing social networking service founded by Kev
 ## DataBase
 https://json-server-skb-assignment.herokuapp.com/
 
-Have a look on this link :- https://happy-curran-36e035.netlify.app
-Example Username: masaischool
-        Password: masaischool
+## Live Demo
+https://happy-curran-36e035.netlify.app
+Example Username: masaischool ,  Password: masaischool
+       
 
 ## Team Members
 
