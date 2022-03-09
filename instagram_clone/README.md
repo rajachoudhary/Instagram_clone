@@ -86,3 +86,6 @@ Here user can edit the items
 
 ### 11. Dropdown and logout
 ![r](https://github.com/skbhoi2001/Instagram_clone/blob/main/instagram_clone/images/dropdown.png?raw=true)
+
+
+Have a look on this link :- https://happy-curran-36e035.netlify.app
