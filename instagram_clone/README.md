@@ -1,6 +1,6 @@
 # INSTAGRAM_CLONE
 
-Instagram is an photo and video sharing social networking service founded by Kevin Systrom and Mike Krieger.It allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.
+Instagram a social help network comprises of start to finish stream having substance like Login/Register, User Profile view and alter, password change, post images search and view users.
 
 ## Tech Stack
 
