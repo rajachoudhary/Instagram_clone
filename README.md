@@ -49,6 +49,13 @@ In the project directory, you can run:
 
 ### `npm start`
 
+### 1. User Login or Register
+### 2. Succesful Login link to the home page
+### 3. User can view profile, edit profile
+### 4. Search users
+### 5. User profile edit
+### 6. Password change
+
 ### 1. Landing Page
 If new user enter in the system then the user will redirect to the login page
 ![r](https://raw.githubusercontent.com/skbhoi2001/Instagram_clone/main/instagram_clone/images/login.png)
